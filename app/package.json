@@ -1,0 +1,29 @@
+{
+  "name": "meteor-application-template-react",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.39",
+    "classnames": "^2.2.5",
+    "meteor-node-stubs": "~0.3.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-addons-pure-render-mixin": "^15.6.2",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-meteor": "^4.1.6",
+    "eslint-plugin-react": "^7.6.0"
+  },
+  "scripts": {
+    "start": "meteor --no-release-check --settings ../config/settings-development.json",
+    "lint": "eslint --quiet ./imports"
+  }
+}
