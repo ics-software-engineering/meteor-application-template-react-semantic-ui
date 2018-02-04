@@ -8,7 +8,7 @@ import { Menu, Dropdown, Header } from 'semantic-ui-react';
 class TopHeader extends React.Component {
   render() {
     return (
-      <Menu top fixed borderless inverted>
+      <Menu top fixed borderless attached inverted>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/">
           <Header inverted as='h1'>meteor-application-template</Header>
         </Menu.Item>
