@@ -41,6 +41,5 @@ practicalmeteor:mocha
 dispatch:mocha
 
 # For prototyping purposes, enable autopublish and insecure
-autopublish
 insecure
 
