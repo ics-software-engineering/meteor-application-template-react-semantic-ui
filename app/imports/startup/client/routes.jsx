@@ -14,6 +14,7 @@ import 'semantic-ui-css/semantic.css';
 
 // Public components
 import TopHeader from '../..//ui/components/TopHeader.jsx';
+import Footer from '../..//ui/components/Footer.jsx';
 import Home from '../../ui/pages/Home.jsx';
 import Example from '../../ui/pages/Example.jsx';
 import Settings from '../../ui/pages/Settings.jsx';
@@ -38,6 +39,8 @@ Meteor.startup(() => {
           <ProtectedRoute path="/signout" component={Signout} />
           <Route component={NotFound} />
         </Switch>
+        <Footer />
+
       </div>
     </Router>,
     document.getElementById('root'),
