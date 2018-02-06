@@ -1,4 +1,5 @@
 import { _ } from 'meteor/underscore';
+import { Meteor } from 'meteor/meteor';
 import Stuff from '../../api/stuff/stuff.js';
 
 /**
@@ -18,3 +19,11 @@ if (Stuff.find().count() === 0) {
     Stuff.insert(stuff);
   });
 }
+
+/**
+ * Stuff publications.
+ */
+
+Meteor.publish('Stuff', function publish() {
+  return Stuff.find();
+});

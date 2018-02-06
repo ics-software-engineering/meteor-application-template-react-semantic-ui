@@ -5,7 +5,6 @@ class Settings extends React.Component {
   render() {
     return (
       <Header as="h2" textAlign="center">
-        <Image src="/ftlogo.png" />
         <p>Settings</p>
       </Header>
     );
