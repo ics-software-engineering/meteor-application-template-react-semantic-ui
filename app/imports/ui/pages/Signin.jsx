@@ -61,7 +61,7 @@ export default class Signin extends React.Component {
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              <Image src="/ftlogo.png" /> Log-in to your account
+              Login to your account
             </Header>
             <Form onSubmit={this.handleSubmit}>
               <Segment stacked>

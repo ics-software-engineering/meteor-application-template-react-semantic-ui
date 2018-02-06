@@ -1,13 +1,21 @@
 import React from 'react';
-import { Header, Image } from 'semantic-ui-react';
+import { Grid, Image } from 'semantic-ui-react';
 
 class Home extends React.Component {
   render() {
     return (
-      <Header as="h2" textAlign="center">
-        <Image src="/opq.png" />
-        <p>OPQ View</p>
-      </Header>
+        <Grid verticalAlign='middle' textAlign='center' container>
+
+          <Grid.Column floated='right' width={4}>
+            <Image size='small' circular src="/images/meteor-logo.png"/>
+          </Grid.Column>
+
+          <Grid.Column floated='left' width={8}>
+            <h1>Welcome to this template</h1>
+            <p>Now get to work and modify this app!</p>
+          </Grid.Column>
+
+        </Grid>
     );
   }
 }

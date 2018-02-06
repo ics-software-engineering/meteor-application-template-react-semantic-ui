@@ -92,7 +92,7 @@ The app/ directory has this structure:
 client/
   lib/           # holds Semantic-UI files.
   head.html      # the <head>
-  main.js        # import all the client-side html and js files. 
+  index.js        # import all the client-side html and js files. 
 
 imports/
   api/           # Define collection processing code (client + server side)
@@ -110,16 +110,16 @@ node_modules/    # managed by Meteor
 public/          # static assets (like images) can go here.
   
 server/
-   main.js       # import all the server-side js files.
+   index.js       # import all the server-side js files.
 ```
 
 ### Import conventions
 
-This system adheres to the Meteor 1.4 guideline of putting all application code in the imports/ directory, and using client/main.js and server/main.js to import the code appropriate for the client and server in an appropriate order.
+This system adheres to the Meteor 1.4 guideline of putting all application code in the imports/ directory, and using client/index.js and server/index.js to import the code appropriate for the client and server in an appropriate order.
 
 This system accomplishes client and server-side importing in a different manner than most Meteor sample applications. In this system, every imports/ subdirectory containing any Javascript or HTML files has a top-level index.js file that is responsible for importing all files in its associated directory.   
 
-Then, client/main.js and server/main.js are responsible for importing all the directories containing code they need. For example, here is the contents of client/main.js:
+Then, client/index.js and server/index.js are responsible for importing all the directories containing code they need. For example, here is the contents of client/index.js:
 
 ```
 import '/imports/startup/client';
@@ -132,7 +132,7 @@ import '/imports/ui/stylesheets/style.css';
 
 Apart from the last line that imports style.css directly, the other lines all invoke the index.js file in the specified directory.
 
-We use this approach to make it more simple to understand what code is loaded and in what order, and to simplify debugging when some code or templates do not appear to be loaded.  In our approach, there are only two places to look for top-level imports: the main.js files in client/ and server/, and the index.js files in import subdirectories. 
+We use this approach to make it more simple to understand what code is loaded and in what order, and to simplify debugging when some code or templates do not appear to be loaded.  In our approach, there are only two places to look for top-level imports: the index.js files in client/ and server/, and the index.js files in import subdirectories. 
 
 Note that this two-level import structure ensures that all code and templates are loaded, but does not ensure that the symbols needed in a given file are accessible.  So, for example, a symbol bound to a collection still needs to be imported into any file that references it. For example, a server startup file needs to reference the symbol "Stuff" in order to initialize the collection, so it must import the symbol Stuff:
 

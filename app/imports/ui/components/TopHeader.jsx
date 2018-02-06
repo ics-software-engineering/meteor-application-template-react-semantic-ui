@@ -5,15 +5,19 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Dropdown, Header } from 'semantic-ui-react';
 
+/* eslint-disable max-len */
+
 class TopHeader extends React.Component {
   render() {
+    const menuStyle = { marginBottom: '10px' };
     return (
-      <Menu attached="top" borderless inverted>
+      <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="active" exact to="/">
           <Header inverted as='h1'>meteor-application-template</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/add-stuff">Add Stuff</Menu.Item>
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add-stuff" key='add-stuff'>Add Stuff</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-stuff" key='list-stuff'>List Stuff</Menu.Item> ]
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
