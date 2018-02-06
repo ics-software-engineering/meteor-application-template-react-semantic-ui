@@ -12,7 +12,7 @@ class TopHeader extends React.Component {
     const menuStyle = { marginBottom: '10px' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="active" exact to="/">
+        <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Header inverted as='h1'>meteor-application-template</Header>
         </Menu.Item>
         {this.props.currentUser ? (

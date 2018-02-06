@@ -43,6 +43,7 @@ Meteor.startup(() => {
 
       </div>
     </Router>,
+    /* eslint-disable no-undef */
     document.getElementById('root'),
   );
 });
