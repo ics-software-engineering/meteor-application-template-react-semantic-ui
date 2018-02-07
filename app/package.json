@@ -16,7 +16,8 @@
     "simpl-schema": "^1.4.2"
   },
   "devDependencies": {
-    "eslint": "^4.16.0",
+    "eslint": "^4.17.0",
+    "babel-eslint": "^8.2.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",

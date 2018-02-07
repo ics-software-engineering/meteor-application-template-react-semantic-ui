@@ -17,6 +17,7 @@ import TopHeader from '../..//ui/components/TopHeader.jsx';
 import Footer from '../..//ui/components/Footer.jsx';
 import Home from '../../ui/pages/Home.jsx';
 import ListStuff from '../../ui/pages/ListStuff.jsx';
+import AddStuff from '../../ui/pages/AddStuff.jsx';
 import Settings from '../../ui/pages/Settings.jsx';
 import Account from '../../ui/pages/Account.jsx';
 import NotFound from '../../ui/pages/NotFound.jsx';
@@ -34,6 +35,7 @@ Meteor.startup(() => {
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
           <ProtectedRoute path="/list-stuff" component={ListStuff} />
+          <ProtectedRoute path="/add-stuff" component={AddStuff} />
           <ProtectedRoute path="/account" component={Account} />
           <ProtectedRoute path="/settings" component={Settings} />
           <ProtectedRoute path="/signout" component={Signout} />

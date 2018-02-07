@@ -1,9 +1,9 @@
 import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
-import Stuff from '../../api/stuff/stuff.js';
+import { Stuff } from '../../api/stuff/stuff.js';
 
 /**
- * A list of Stuff to pre-fill the Collection.
+ * A list of Stuff to be used to initialize the Collection.
  * @type {*[]}
  */
 const stuffSeeds = [
@@ -23,7 +23,6 @@ if (Stuff.find().count() === 0) {
 /**
  * Stuff publications.
  */
-
 Meteor.publish('Stuff', function publish() {
   return Stuff.find();
 });
