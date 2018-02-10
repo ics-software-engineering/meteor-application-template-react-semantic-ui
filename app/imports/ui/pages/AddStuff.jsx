@@ -4,6 +4,7 @@ import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Bert } from 'meteor/themeteorchef:bert';
 import PropTypes from 'prop-types';
+import { _ } from 'meteor/underscore';
 
 class AddStuff extends React.Component {
 

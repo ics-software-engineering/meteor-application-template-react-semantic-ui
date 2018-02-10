@@ -4,10 +4,9 @@ import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Bert } from 'meteor/themeteorchef:bert';
 import PropTypes from 'prop-types';
+import { _ } from 'meteor/underscore';
 
 class EditStuff extends React.Component {
-
-  schemaContext = StuffSchema.namedContext('EditStuff');
 
   state = { name: '', quantity: '' }
 
@@ -16,15 +15,21 @@ class EditStuff extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { name, quantity } = this.state;
-    this.schemaContext.reset();
+    const schemaContext = StuffSchema.newContext();
     const cleanData = StuffSchema.clean({ name, quantity });
-    this.schemaContext.validate(cleanData);
-    if (this.schemaContext.isValid()) {
+    schemaContext.validate(cleanData);
+    const alertData = {};
+    if (schemaContext.isValid()) {
       Stuff.insert(cleanData);
-      Bert.alert('Success!', 'success', 'fixed-bottom');
+      alertData.message = `Added ${name} with quantity ${quantity}`;
+      alertData.type = 'success';
     } else {
-      Bert.alert('Insert failed; invalid data. Try again', 'failure', 'growl-top-right');
+      const errors = _.map(schemaContext.validationErrors(), error => schemaContext.keyErrorMessage(error.name));
+      alertData.message = `Add failed: ${errors}`;
+      alertData.type = 'danger';
+      alertData.hideDelay = 5000;
     }
+    Bert.alert(alertData);
   }
 
   render() {
@@ -32,8 +37,8 @@ class EditStuff extends React.Component {
     return (
         <Container text>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Input placeholder='Name' name='name' value={name} onChange={this.handleChange}/>
-            <Form.Input placeholder='Quantity' name='quantity' value={quantity} onChange={this.handleChange}/>
+            <Form.Input required label='Name' name='name' value={name} onChange={this.handleChange}/>
+            <Form.Input required label='Quantity' name='quantity' value={quantity} onChange={this.handleChange} />
             <Button type='submit'>Submit</Button>
           </Form>
         </Container>
