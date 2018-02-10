@@ -23,6 +23,7 @@ class AddStuff extends React.Component {
       Stuff.insert(cleanData);
       alertData.message = `Added ${name} with quantity ${quantity}`;
       alertData.type = 'success';
+      this.setState({ name: '', quantity: '' });
     } else {
       const errors = _.map(schemaContext.validationErrors(), error => schemaContext.keyErrorMessage(error.name));
       alertData.message = `Add failed: ${errors}`;
