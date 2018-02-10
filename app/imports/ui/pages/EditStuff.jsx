@@ -5,7 +5,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Bert } from 'meteor/themeteorchef:bert';
 import PropTypes from 'prop-types';
 
-class AddStuff extends React.Component {
+class EditStuff extends React.Component {
+
+  schemaContext = StuffSchema.namedContext('EditStuff');
 
   state = { name: '', quantity: '' }
 
@@ -14,21 +16,15 @@ class AddStuff extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { name, quantity } = this.state;
-    const schemaContext = StuffSchema.newContext();
+    this.schemaContext.reset();
     const cleanData = StuffSchema.clean({ name, quantity });
-    schemaContext.validate(cleanData);
-    const alertData = {};
-    if (schemaContext.isValid()) {
+    this.schemaContext.validate(cleanData);
+    if (this.schemaContext.isValid()) {
       Stuff.insert(cleanData);
-      alertData.message = `Added ${name} with quantity ${quantity}`;
-      alertData.type = 'success';
+      Bert.alert('Success!', 'success', 'fixed-bottom');
     } else {
-      const errors = _.map(schemaContext.validationErrors(), error => schemaContext.keyErrorMessage(error.name));
-      alertData.message = `Add failed: ${errors}`;
-      alertData.type = 'danger';
-      alertData.hideDelay = 5000;
+      Bert.alert('Insert failed; invalid data. Try again', 'failure', 'growl-top-right');
     }
-    Bert.alert(alertData);
   }
 
   render() {
@@ -36,8 +32,8 @@ class AddStuff extends React.Component {
     return (
         <Container text>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Input required label='Name' name='name' value={name} onChange={this.handleChange}/>
-            <Form.Input required label='Quantity' name='quantity' value={quantity} onChange={this.handleChange} />
+            <Form.Input placeholder='Name' name='name' value={name} onChange={this.handleChange}/>
+            <Form.Input placeholder='Quantity' name='quantity' value={quantity} onChange={this.handleChange}/>
             <Button type='submit'>Submit</Button>
           </Form>
         </Container>
@@ -45,7 +41,7 @@ class AddStuff extends React.Component {
   }
 }
 
-AddStuff.propTypes = {
+EditStuff.propTypes = {
   Stuff: PropTypes.object.isRequired,
 };
 
@@ -53,5 +49,4 @@ export default withTracker(() => { //eslint-disable-line
   return {
     Stuff: Stuff,
   };
-})(AddStuff);
-
+})(EditStuff);
