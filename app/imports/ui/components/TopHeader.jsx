@@ -16,8 +16,8 @@ class TopHeader extends React.Component {
           <Header inverted as='h1'>meteor-application-template</Header>
         </Menu.Item>
         {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add-stuff" key='add-stuff'>Add Stuff</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/list-stuff" key='list-stuff'>List Stuff</Menu.Item> ]
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Stuff</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Stuff</Menu.Item> ]
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
