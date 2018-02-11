@@ -3,10 +3,18 @@ import { Container, Form, Button } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { _ } from 'meteor/underscore';
-import { withRouter } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
 
 
 class EditStuff extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state.name = this.props.doc.name;
+    this.state.quantity = this.props.doc.quantity;
+  }
 
   state = { name: '', quantity: '' }
 
@@ -33,7 +41,6 @@ class EditStuff extends React.Component {
   }
 
   render() {
-    console.log(this, this.props.match.params._id);
     const { name, quantity } = this.state;
     return (
         <Container text>
@@ -47,4 +54,16 @@ class EditStuff extends React.Component {
   }
 }
 
-export default withRouter(EditStuff);
+EditStuff.propTypes = {
+  doc: PropTypes.object,
+  history: PropTypes.object.isRequired,
+};
+
+export default withTracker(({ match }) => {
+  const documentId = match.params._id;
+  Meteor.subscribe('Stuff');
+
+  return {
+    doc: Stuff.findOne(documentId),
+  };
+})(EditStuff);
