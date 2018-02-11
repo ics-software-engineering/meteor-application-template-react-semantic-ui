@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Table, Button } from 'semantic-ui-react';
 import { Stuff } from '/imports/api/stuff/stuff';
+import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
@@ -13,11 +14,7 @@ class ListStuff extends React.Component {
 
   renderStuff() {
     return this.props.stuffs.map((stuff) => (
-        <Table.Row key={stuff._id}>
-          <Table.Cell>{stuff.name}</Table.Cell>
-          <Table.Cell>{stuff.quantity}</Table.Cell>
-          <Table.Cell> <Button content='Edit' onClick={this.handleClick}/> </Table.Cell>
-        </Table.Row>
+        <StuffItem key={stuff._id} stuff={stuff} />
     ));
   }
 

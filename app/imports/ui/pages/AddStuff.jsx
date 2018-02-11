@@ -1,9 +1,7 @@
 import React from 'react';
 import { Container, Form, Button } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
-import { withTracker } from 'meteor/react-meteor-data';
 import { Bert } from 'meteor/themeteorchef:bert';
-import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 
 class AddStuff extends React.Component {
@@ -47,13 +45,5 @@ class AddStuff extends React.Component {
   }
 }
 
-AddStuff.propTypes = {
-  Stuff: PropTypes.object.isRequired,
-};
-
-export default withTracker(() => { //eslint-disable-line
-  return {
-    Stuff: Stuff,
-  };
-})(AddStuff);
+export default AddStuff;
 

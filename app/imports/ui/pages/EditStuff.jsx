@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Form, Button } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
-import { withTracker } from 'meteor/react-meteor-data';
 import { Bert } from 'meteor/themeteorchef:bert';
-import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
+import { withRouter } from 'react-router-dom';
+
 
 class EditStuff extends React.Component {
 
@@ -33,6 +33,7 @@ class EditStuff extends React.Component {
   }
 
   render() {
+    console.log(this, this.props.match.params._id);
     const { name, quantity } = this.state;
     return (
         <Container text>
@@ -46,12 +47,4 @@ class EditStuff extends React.Component {
   }
 }
 
-EditStuff.propTypes = {
-  Stuff: PropTypes.object.isRequired,
-};
-
-export default withTracker(() => { //eslint-disable-line
-  return {
-    Stuff: Stuff,
-  };
-})(EditStuff);
+export default withRouter(EditStuff);
