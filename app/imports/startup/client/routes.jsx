@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
   Redirect,

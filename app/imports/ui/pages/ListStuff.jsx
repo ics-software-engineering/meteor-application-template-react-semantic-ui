@@ -1,16 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Button } from 'semantic-ui-react';
+import { Container, Table, Header } from 'semantic-ui-react';
 import { Stuff } from '/imports/api/stuff/stuff';
 import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
 class ListStuff extends React.Component {
-
-  handleClick(id) {
-    console.log('got id', id);
-  }
 
   renderStuff() {
     return this.props.stuffs.map((stuff) => (
@@ -21,6 +17,7 @@ class ListStuff extends React.Component {
   render() {
     return (
         <Container text>
+          <Header as='h1'>List Stuff</Header>
           <Table celled>
             <Table.Header>
               <Table.Row>
