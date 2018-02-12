@@ -32,5 +32,5 @@ themeteorchef:bert               # UI notifications. https://themeteorchef.com/t
 underscore                       # http://underscorejs.org/
 ejson                            # https://docs.meteor.com/api/ejson.html
 
-# For prototyping purposes, enable autopublish and insecure
-insecure
+# Prototyping only
+insecure                         # Enable client-side manipulation of Mongo collections. 
