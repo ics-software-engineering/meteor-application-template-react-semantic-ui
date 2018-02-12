@@ -33,4 +33,4 @@ underscore                       # http://underscorejs.org/
 ejson                            # https://docs.meteor.com/api/ejson.html
 
 # Prototyping only
-insecure                         # Enable client-side manipulation of Mongo collections. 
+insecure                         # Enable client-side manipulation of Mongo collections.

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, Button, Header } from 'semantic-ui-react';
+import { Container, Form, Button, Header, Segment } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { _ } from 'meteor/underscore';
@@ -42,12 +42,16 @@ class AddStuff extends React.Component {
     const { name, quantity } = this.state;
     return (
         <Container text>
-          <Header as='h1'>Add Stuff</Header>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Input required label='Name' name='name' value={name} onChange={this.handleChange}/>
-            <Form.Input required label='Quantity' name='quantity' value={quantity} onChange={this.handleChange} />
-            <Button type='submit'>Submit</Button>
-          </Form>
+          <Segment.Group>
+            <Segment attached='top' inverted color='grey'>Add Stuff</Segment>
+            <Segment>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Input required label='Name' name='name' value={name} onChange={this.handleChange}/>
+                <Form.Input required label='Quantity' name='quantity' value={quantity} onChange={this.handleChange}/>
+                <Button type='submit'>Submit</Button>
+              </Form>
+            </Segment>
+          </Segment.Group>
         </Container>
     );
   }
