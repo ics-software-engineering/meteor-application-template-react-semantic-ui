@@ -8,12 +8,6 @@ import PropTypes from 'prop-types';
 
 class ListStuff extends React.Component {
 
-  renderStuff() {
-    return this.props.stuffs.map((stuff) => (
-        <StuffItem key={stuff._id} stuff={stuff} />
-    ));
-  }
-
   render() {
     return (
         <Container text>
@@ -27,7 +21,7 @@ class ListStuff extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.renderStuff()}
+              {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
             </Table.Body>
           </Table>
         </Container>
