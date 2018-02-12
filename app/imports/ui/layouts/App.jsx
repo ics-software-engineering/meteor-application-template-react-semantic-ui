@@ -5,7 +5,7 @@ import 'semantic-ui-css/semantic.css';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from '../..//ui/components/NavBar.jsx';
 import Footer from '../..//ui/components/Footer.jsx';
-import Home from '../../ui/pages/Home.jsx';
+import Landing from '../../ui/pages/Landing.jsx';
 import ListStuff from '../../ui/pages/ListStuff.jsx';
 import AddStuff from '../../ui/pages/AddStuff.jsx';
 import EditStuff from '../../ui/pages/EditStuff.jsx';
@@ -14,15 +14,15 @@ import Signin from '../../ui/pages/Signin.jsx';
 import Signup from '../../ui/pages/Signup.jsx';
 import Signout from '../../ui/pages/Signout.jsx';
 
+/** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
-
   render() {
     return (
         <Router>
           <div>
             <NavBar/>
             <Switch>
-              <Route exact path="/" component={Home}/>
+              <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
@@ -48,20 +48,15 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={(props) => {
       const isLogged = Meteor.userId() !== null;
-      return isLogged ? (
-        <Component {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: '/signin',
-            state: { from: props.location },
-          }}
-        />
+      return isLogged ?
+          (<Component {...props} />) :
+          (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
       );
     }}
   />
 );
 
+/** Require a component and location to be passed to each ProtectedRoute. */
 ProtectedRoute.propTypes = {
   component: PropTypes.func.isRequired,
   location: PropTypes.object,

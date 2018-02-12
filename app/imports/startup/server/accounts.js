@@ -3,7 +3,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 /* eslint-disable no-console */
 
-/* When running app for first time, pass a settings file to set up a default user account. */
+/** When running app for first time, pass a settings file to set up a default user account. */
 if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultAccount) {
     console.log('Creating the default user');
