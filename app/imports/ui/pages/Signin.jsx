@@ -14,7 +14,7 @@ export default class Signin extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '', error: '', redirectToReferer: false };
-    // Ensure that 'this' is bound to this component.
+    // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
