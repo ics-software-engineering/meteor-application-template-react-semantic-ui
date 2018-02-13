@@ -206,5 +206,5 @@ It's significantly easier to do development with ESLint integrated directly into
 
 Click the image below to watch a walkthrough of this system. This screencast was generated for a previous version of meteor-application-template, so there may be small differences in the code base. 
 
-[<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/meteor-application-template-youtube.png" width="600">](https://www.youtube.com/watch?v=kEJN3kjyugs)
+[<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/meteor-application-template-youtube.png" width="600">](https://youtu.be/ik9WigX8y7k)
 
