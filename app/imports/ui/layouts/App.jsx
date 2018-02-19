@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import 'semantic-ui-css/semantic.css';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import NavBar from '../components/NavBar.jsx';
-import Footer from '../components/Footer.jsx';
-import Landing from '../pages/Landing.jsx';
-import ListStuff from '../pages/ListStuff.jsx';
-import AddStuff from '../pages/AddStuff.jsx';
-import EditStuff from '../pages/EditStuff.jsx';
-import NotFound from '../pages/NotFound.jsx';
-import Signin from '../pages/Signin.jsx';
-import Signup from '../pages/Signup.jsx';
-import Signout from '../pages/Signout.jsx';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import Landing from '../pages/Landing';
+import ListStuff from '../pages/ListStuff';
+import AddStuff from '../pages/AddStuff';
+import EditStuff from '../pages/EditStuff';
+import NotFound from '../pages/NotFound';
+import Signin from '../pages/Signin';
+import Signup from '../pages/Signup';
+import Signout from '../pages/Signout';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
