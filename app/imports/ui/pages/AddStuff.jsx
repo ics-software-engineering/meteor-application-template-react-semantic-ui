@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, Button, Header, Segment } from 'semantic-ui-react';
+import { Container, Form, Button, Segment } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { _ } from 'meteor/underscore';
