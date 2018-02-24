@@ -37,6 +37,7 @@
     "object-property-newline": "off",
     "object-shorthand": "off",
     "padded-blocks": "off",
+    "indent": "off",
     "prefer-arrow-callback": "off",
     "prefer-destructuring": "off",
     "prefer-promise-reject-errors": "off"
