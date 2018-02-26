@@ -13,7 +13,9 @@
     "react-router-dom": "^4.2.2",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.2",
-    "simpl-schema": "^1.4.2"
+    "simpl-schema": "^1.4.2",
+    "uniforms": "^1.23.0",
+    "uniforms-semantic": "^1.23.0"
   },
   "devDependencies": {
     "eslint": "^4.17.0",

@@ -8,13 +8,11 @@ const Stuff = new Mongo.Collection('Stuff');
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const StuffSchema = new SimpleSchema({
   name: {
-    label: 'Name',
     type: String,
     optional: false,
     max: 20,
   },
   quantity: {
-    label: 'Quantity',
     type: Number,
     optional: false,
   },
