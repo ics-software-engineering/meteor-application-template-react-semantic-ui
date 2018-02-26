@@ -11,36 +11,37 @@ import { Bert } from 'meteor/themeteorchef:bert';
 class AddStuffUniforms extends React.Component {
 
   /** On successful submit, insert the data. For prototypes, don't catch database insert failure. */
-   submit(data) {
-     Stuff.insert(data);
-     Bert.alert({ type: 'success', message: 'Add succeeded.' });
+  submit(data) {
+    Stuff.insert(data, (error) => (error ?
+      Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` }) :
+      Bert.alert({ type: 'success', message: 'Add succeeded' })));
   }
 
   /** Render the form. */
   render() {
     return (
-        <AutoForm schema={StuffSchema} onSubmit={this.submit}>
-          <Grid container>
+      <AutoForm schema={StuffSchema} onSubmit={this.submit}>
+        <Grid container>
 
-            <Grid.Row columns={2}>
-              <Grid.Column>
-                <TextField name='name' />
-              </Grid.Column>
-              <Grid.Column>
-                <TextField name='quantity' />
-              </Grid.Column>
-            </Grid.Row>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <TextField name='name'/>
+            </Grid.Column>
+            <Grid.Column>
+              <TextField name='quantity'/>
+            </Grid.Column>
+          </Grid.Row>
 
-            <Grid.Row>
-              <SubmitField value='Submit' />
-            </Grid.Row>
+          <Grid.Row>
+            <SubmitField value='Submit'/>
+          </Grid.Row>
 
-            <Grid.Row>
-              <ErrorsField />
-            </Grid.Row>
+          <Grid.Row>
+            <ErrorsField/>
+          </Grid.Row>
 
-          </Grid>
-        </AutoForm>
+        </Grid>
+      </AutoForm>
     );
   }
 }

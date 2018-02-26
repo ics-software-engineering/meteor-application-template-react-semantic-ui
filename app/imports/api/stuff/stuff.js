@@ -16,6 +16,15 @@ const StuffSchema = new SimpleSchema({
     type: Number,
     optional: false,
   },
+  username: {
+    type: String,
+    optional: false,
+  },
+  condition: {
+    type: String,
+    allowedValues: ['excellent', 'good', 'fair', 'poor'],
+    defaultValue: 'good',
+  },
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

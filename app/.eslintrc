@@ -31,6 +31,7 @@
     "max-len": ["error", 120],
     "meteor/eventmap-params": [2, { "eventParamName": "event", "templateInstanceParamName": "instance" } ],
     "meteor/template-names": "off",
+    "no-confusing-arrow": ["error", {"allowParens": true}],
     "no-plusplus": "off",
     "no-underscore-dangle": "off",
     "object-curly-newline": "off",
