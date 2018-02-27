@@ -7,6 +7,8 @@ import { Stuff } from '../../api/stuff/stuff.js';
 const seedData = [
   { name: 'Basket', quantity: 3, username: 'john@foo.com', condition: 'excellent' },
   { name: 'Bicycle', quantity: 2, username: 'john@foo.com', condition: 'poor' },
+  { name: 'Banana', quantity: 2, username: 'admin@foo.com', condition: 'good' },
+  { name: 'Boogie Board', quantity: 2, username: 'admin@foo.com', condition: 'excellent' },
 ];
 
 /** Initialize the collection if empty. */
@@ -14,11 +16,11 @@ if (Stuff.find().count() === 0) {
   _.each(seedData, data => Stuff.insert(data));
 }
 
-/** Publish the documents associated with the logged . */
+/** If admin user, publish all documents, otherwise publish only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Roles.userIsInRole(this.userID, 'admin') ? Stuff.find() : Stuff.find({ username });
+    return Roles.userIsInRole(this.userId, 'admin') ? Stuff.find() : Stuff.find({ username });
   }
   return this.ready();
 });
