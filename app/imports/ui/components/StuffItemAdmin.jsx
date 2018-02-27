@@ -1,9 +1,8 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 class StuffItemAdmin extends React.Component {
   render() {
     return (
@@ -22,5 +21,4 @@ StuffItemAdmin.propTypes = {
   stuff: PropTypes.object.isRequired,
 };
 
-/** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(StuffItemAdmin);
+export default StuffItemAdmin;

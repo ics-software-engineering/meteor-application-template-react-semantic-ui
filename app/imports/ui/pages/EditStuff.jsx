@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -27,35 +27,24 @@ class EditStuff extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader>Getting data</Loader>;
   }
 
-  /** Render the page, providing default values for form fields, using Uniforms: https://github.com/vazco/uniforms */
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-      <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc} >
-        <Grid container>
-
-          <Grid.Row columns={3}>
-            <Grid.Column>
-              <TextField name='name'/>
-            </Grid.Column>
-            <Grid.Column>
-              <TextField name='quantity'/>
-            </Grid.Column>
-            <Grid.Column>
-              <SelectField name='condition' />
-            </Grid.Column>
-          </Grid.Row>
-
-          <Grid.Row centered>
-            <SubmitField value='Submit'/>
-          </Grid.Row>
-
-          <Grid.Row>
-            <ErrorsField/>
-            <TextField name='username' type='hidden' label={false} />
-          </Grid.Row>
-
+        <Grid container centered>
+          <Grid.Column>
+            <Header as="h2" textAlign="center">Edit Stuff</Header>
+            <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc}>
+              <Segment>
+                <TextField name='name'/>
+                <TextField name='quantity'/>
+                <SelectField name='condition'/>
+                <SubmitField value='Submit'/>
+                <ErrorsField/>
+                <TextField name='username' type='hidden' label={false} />
+              </Segment>
+            </AutoForm>
+          </Grid.Column>
         </Grid>
-      </AutoForm>
     );
   }
 }
