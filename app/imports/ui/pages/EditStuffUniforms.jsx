@@ -1,7 +1,12 @@
 import React from 'react';
-import { Container, Form, Button, Segment, Loader } from 'semantic-ui-react';
+import { Grid, Form, Button, Segment, Loader } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
+import AutoForm from 'uniforms-semantic/AutoForm';
+import TextField from 'uniforms-semantic/TextField';
+import SelectField from 'uniforms-semantic/SelectField';
+import SubmitField from 'uniforms-semantic/SubmitField';
+import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { _ } from 'meteor/underscore';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -17,20 +22,33 @@ class EditStuff extends React.Component {
 
   /** Render the page, providing default values for form fields. */
   renderPage() {
-    const { name, quantity } = this.state;
     return (
-        <Container text>
-          <Segment.Group>
-            <Segment attached='top' inverted color='grey'>Edit Stuff</Segment>
-            <Segment>
-              <Form onSubmit={this.handleSubmit}>
-                <Form.Input required label='Name' name='name' value={name} onChange={this.handleChange}/>
-                <Form.Input required label='Quantity' name='quantity' value={quantity} onChange={this.handleChange}/>
-                <Button type='submit'>Submit</Button>
-              </Form>
-            </Segment>
-          </Segment.Group>
-        </Container>
+      <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc} >
+        <Grid container>
+
+          <Grid.Row columns={3}>
+            <Grid.Column>
+              <TextField name='name'/>
+            </Grid.Column>
+            <Grid.Column>
+              <TextField name='quantity'/>
+            </Grid.Column>
+            <Grid.Column>
+              <SelectField name='condition' />
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row centered>
+            <SubmitField value='Submit'/>
+          </Grid.Row>
+
+          <Grid.Row>
+            <ErrorsField/>
+            <TextField name='username' type='hidden' label={false} value='fakeuser@foo.com'/>
+          </Grid.Row>
+
+        </Grid>
+      </AutoForm>
     );
   }
 }
