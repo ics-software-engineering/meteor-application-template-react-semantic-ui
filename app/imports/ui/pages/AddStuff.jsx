@@ -12,14 +12,6 @@ import { Meteor } from 'meteor/meteor';
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
 
-  /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
-  constructor(props) {
-    super(props);
-    this.submit = this.submit.bind(this);
-    this.render = this.render.bind(this);
-    this.formRef = null;
-  }
-
   /** On successful submit, insert the data. */
   submit(data) {
     const { name, quantity, condition } = data;
@@ -27,7 +19,6 @@ class AddStuff extends React.Component {
     Stuff.insert({ name, quantity, condition, username }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Add succeeded' })));
-    this.formRef.reset();
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -36,7 +27,7 @@ class AddStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={(ref) => this.formRef = ref} schema={StuffSchema} onSubmit={this.submit}>
+            <AutoForm schema={StuffSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='name'/>
                 <TextField name='quantity'/>

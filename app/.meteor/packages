@@ -31,7 +31,7 @@ themeteorchef:bert               # UI notifications. https://themeteorchef.com/t
 # Utilities
 underscore                       # http://underscorejs.org/
 ejson                            # https://docs.meteor.com/api/ejson.html
+alanning:roles                   # https://github.com/alanning/meteor-roles
 
 # Prototyping only
 insecure                         # Enable client-side manipulation of Mongo collections.
-alanning:roles

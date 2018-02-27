@@ -3,11 +3,14 @@
 Meteor-application-template-react is a sample Meteor 1.6 application that illustrates:
 
   * A standard directory layout using 'imports/' as recommended in the [Meteor Guide](https://guide.meteor.com/structure.html) 
-  * A basic set of Meteor packages and example usage (Accounts, React, Semantic UI)
+  * A basic set of Meteor packages and example usage (Accounts, React)
+  * Use of [Semantic UI React](https://react.semantic-ui.com/) for user interface.
+  * Use of [Uniforms](https://github.com/vazco/uniforms) for form development
+  * Use of [alanning:Roles](https://github.com/alanning/meteor-roles) to implement a special "Admin" user.
   * Simple authorization/authentication and use of settings files for initialization.
   * Simple quality assurance using [ESLint](http://eslint.org) with packages to partially enforce the [Meteor Coding Standards](https://guide.meteor.com/code-style.html) and the [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript).
 
-The goal of this template is to help you get quickly started doing Meteor development by providing a reasonable directory structure for development and deployment, a set of common extensions to the core framework, and boilerplate code to implement basic page display, navigation, and collection manipulation.
+The goal of this template is to help you get quickly started doing Meteor development by providing a reasonable directory structure for development and deployment, a set of common extensions to the core framework, and boilerplate code to implement basic page display, navigation, forms, roles, and collection manipulation.
 
 To keep this codebase simple and small, some important capabilities are intentionally excluded from this template:
 
@@ -118,7 +121,9 @@ This system adheres to the Meteor 1.4 guideline of putting all application code 
 
 ### Application functionality
 
-The application implements a simple CRUD application for managing "Stuff", which is a Mongo Collection consisting of a name (String) and a quantity (Number).
+The application implements a simple CRUD application for managing "Stuff", which is a Mongo Collection consisting of a name (String), a quantity (Number), and a condition (one of 'excellent', 'good', 'fair', or 'poor').
+
+By default, each user only sees the Stuff that they have created.  However, the settings file enables you to define default accounts.  If you define a user with the role "admin", then that user gets access to a special page 
 
 #### Landing page
 
