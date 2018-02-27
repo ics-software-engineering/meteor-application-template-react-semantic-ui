@@ -1,58 +1,25 @@
 import React from 'react';
-import { Container, Form, Button, Segment, Loader } from 'semantic-ui-react';
+import { Grid, Loader } from 'semantic-ui-react';
 import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { _ } from 'meteor/underscore';
+import AutoForm from 'uniforms-semantic/AutoForm';
+import TextField from 'uniforms-semantic/TextField';
+import SelectField from 'uniforms-semantic/SelectField';
+import SubmitField from 'uniforms-semantic/SubmitField';
+import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
-/** Renders the Page for editing a single Stuff document. */
+/** Renders the Page for editing a single document. */
 class EditStuff extends React.Component {
 
-  /* Keep track of the state of all of the form controls and the docID from the URL. */
-  state = { name: '', quantity: '', _id: '' }
-
-  /*
-   * When "match" is passed into withTracker, we are acquiring data for the page from the URL.
-   * In this case, we need to set the state using componentDidUpdate().
-   * Otherwise browser refresh and/or bookmarked URLs will not display the data correctly.
-   * Note that this.props.doc might be undefined momentarily: we use the && to prevent console errors.
-   */
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
-      this.setState(() => ({
-        name: this.props.doc && this.props.doc.name,
-        quantity: this.props.doc && this.props.doc.quantity,
-        _id: this.props.doc && this.props.doc._id,
-      }));
-    }
-  }
-
-  /* When anything changes in a form control, update the associated state field. */
-  handleChange = (event, { name, value }) => this.setState({ [name]: value })
-
-  /* When the user clicks the submit button, check the data for validity and update the document if valid. */
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { name, quantity, _id } = this.state;
-    // Validate form fields. See https://github.com/aldeed/simple-schema-js#validating-data
-    const schemaContext = StuffSchema.newContext();
-    const cleanData = StuffSchema.clean({ name, quantity });
-    schemaContext.validate(cleanData);
-    const alertData = {};
-    if (schemaContext.isValid()) {
-      Stuff.update(_id, { $set: cleanData });
-      alertData.message = `Updated ${name} with quantity ${quantity}`;
-      alertData.type = 'success';
-    } else {
-      const errors = _.map(schemaContext.validationErrors(), error => schemaContext.keyErrorMessage(error.name));
-      alertData.message = `Add failed: ${errors}`;
-      alertData.type = 'danger';
-      alertData.hideDelay = 5000;
-    }
-    // Notify the user of success or failure. See https://themeteorchef.com/tutorials/client-side-alerts-with-bert
-    Bert.alert(alertData);
+  /** On successful submit, insert the data. */
+  submit(data) {
+    const { name, quantity, condition, _id } = data;
+    Stuff.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
+        Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
+        Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -60,29 +27,43 @@ class EditStuff extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader>Getting data</Loader>;
   }
 
-  /** Render the page, providing default values for form fields. */
+  /** Render the page, providing default values for form fields, using Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    const { name, quantity } = this.state;
     return (
-        <Container text>
-          <Segment.Group>
-            <Segment attached='top' inverted color='grey'>Edit Stuff</Segment>
-            <Segment>
-              <Form onSubmit={this.handleSubmit}>
-                <Form.Input required label='Name' name='name' value={name} onChange={this.handleChange}/>
-                <Form.Input required label='Quantity' name='quantity' value={quantity} onChange={this.handleChange}/>
-                <Button type='submit'>Submit</Button>
-              </Form>
-            </Segment>
-          </Segment.Group>
-        </Container>
+      <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc} >
+        <Grid container>
+
+          <Grid.Row columns={3}>
+            <Grid.Column>
+              <TextField name='name'/>
+            </Grid.Column>
+            <Grid.Column>
+              <TextField name='quantity'/>
+            </Grid.Column>
+            <Grid.Column>
+              <SelectField name='condition' />
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row centered>
+            <SubmitField value='Submit'/>
+          </Grid.Row>
+
+          <Grid.Row>
+            <ErrorsField/>
+            <TextField name='username' type='hidden' label={false} />
+          </Grid.Row>
+
+        </Grid>
+      </AutoForm>
     );
   }
 }
 
-/** Require the presence of a Stuff document in the props object. */
+/** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
 EditStuff.propTypes = {
   doc: PropTypes.object,
+  model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 

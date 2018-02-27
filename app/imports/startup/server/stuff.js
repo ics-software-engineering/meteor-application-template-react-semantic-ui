@@ -16,11 +16,19 @@ if (Stuff.find().count() === 0) {
   _.each(seedData, data => Stuff.insert(data));
 }
 
-/** If admin user, publish all documents, otherwise publish only the documents associated with the logged in user */
+/** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Stuff', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Roles.userIsInRole(this.userId, 'admin') ? Stuff.find() : Stuff.find({ username });
+    return Stuff.find({ username });
+  }
+  return this.ready();
+});
+
+/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
+Meteor.publish('StuffAdmin', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Stuff.find();
   }
   return this.ready();
 });

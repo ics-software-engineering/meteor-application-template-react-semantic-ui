@@ -21,7 +21,7 @@ class AddStuff extends React.Component {
       Bert.alert({ type: 'success', message: 'Add succeeded' })));
   }
 
-  /** Render the form. */
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
       <AutoForm schema={StuffSchema} onSubmit={this.submit} >
