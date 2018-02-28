@@ -271,5 +271,5 @@ It's significantly easier to do development with ESLint integrated directly into
 
 Click the image below to watch a walkthrough of this system. 
 
-[<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/meteor-application-template-youtube.png" width="600">](https://youtu.be/ik9WigX8y7k)
+[<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/meteor-application-template-react-youtube.png" width="600">](https://youtu.be/ik9WigX8y7k)
 
