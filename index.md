@@ -3,11 +3,11 @@
 Meteor-application-template-react is a sample Meteor 1.6 application that illustrates:
 
   * A standard directory layout using 'imports/' as recommended in the [Meteor Guide](https://guide.meteor.com/structure.html) 
-  * A basic set of Meteor packages and example usage (Accounts, React)
   * Use of [Semantic UI React](https://react.semantic-ui.com/) for user interface.
   * Use of [Uniforms](https://github.com/vazco/uniforms) for form development
   * Use of [alanning:Roles](https://github.com/alanning/meteor-roles) to implement a special "Admin" user.
-  * Simple authorization/authentication and use of settings files for initialization.
+  * Simple authorization, authentication, and registration using built-in Meteor packages. 
+  * 
   * Simple quality assurance using [ESLint](http://eslint.org) with packages to partially enforce the [Meteor Coding Standards](https://guide.meteor.com/code-style.html) and the [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript).
 
 The goal of this template is to help you get quickly started doing Meteor development by providing a reasonable directory structure for development and deployment, a set of common extensions to the core framework, and boilerplate code to implement basic page display, navigation, forms, roles, and collection manipulation.
@@ -48,8 +48,33 @@ Once the libraries are installed, you can run the application by invoking the ["
 $ meteor npm run start
 ```
 
+The first time you run the app, it will create some default users and data. Here is the output:
 
-**Note regarding bcrypt warning.** You will get the following message when you run this application:
+```
+meteor npm run start
+
+> meteor-application-template-react@ start /Users/philipjohnson/github/ics-software-engineering/meteor-application-template-react/app
+> meteor --no-release-check --settings ../config/settings.development.json
+
+[[[[[ ~/github/ics-software-engineering/meteor-application-template-react/app ]]]]]
+
+=> Started proxy.                             
+=> Started MongoDB.                           
+I20180227-13:33:02.716(-10)? Creating the default user(s)
+I20180227-13:33:02.742(-10)?   Creating user admin@foo.com.
+I20180227-13:33:02.743(-10)?   Creating user john@foo.com.
+I20180227-13:33:02.743(-10)? Creating default data.
+I20180227-13:33:02.743(-10)?   Adding: Basket (john@foo.com)
+I20180227-13:33:02.743(-10)?   Adding: Bicycle (john@foo.com)
+I20180227-13:33:02.743(-10)?   Adding: Banana (admin@foo.com)
+I20180227-13:33:02.744(-10)?   Adding: Boogie Board (admin@foo.com)
+=> Started your app.
+
+=> App running at: http://localhost:3000/
+```
+
+
+**Note regarding bcrypt warning.** You will also get the following message when you run this application:
 
 ```
 Note: you are using a pure-JavaScript implementation of bcrypt.
@@ -127,34 +152,70 @@ By default, each user only sees the Stuff that they have created.  However, the 
 
 #### Landing page
 
-Implemented by the Landing component. 
+When you retrieve the app at http://localhost:3000, this is what should be displayed:
 
 ![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/landing-page.png)
 
-You must login to access any page other than the Home page. 
+The next step is to use the Login menu to either Login to an existing account or register a new account.
 
-#### List Stuff page
+#### Login page
 
-You must login to see the contents of the Stuff collection.
+Clicking on the Login link, then on the Sign In menu item displays this page:
 
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/list-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/signin-page.png)
+
+#### Register page
+
+Alternatively, clicking on the Login link, then on the Sign Up menu item displays this page:
+
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/register-page.png)
+
+
+#### Landing (after Login) page, non-Admin user
+
+Once you log in (either to an existing account or by creating a new one), the navbar changes as follows:
+
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/landing-after-login-page.png)
+
+You can now add new Stuff documents, and list the Stuff you have created. Note you cannot see any Stuff created by other users.
 
 #### Add Stuff page
 
-You must login to add new documents to the Stuff collection.
+After logging in, here is the page that allows you to add new Stuff:
 
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/add-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/add-stuff-page.png)
+
+#### List Stuff page
+
+After logging in, here is the page that allows you to list all the Stuff you have created:
+
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/list-stuff-page.png)
+
+You click the "Edit" link to go to the Edit Stuff page, shown next.
 
 #### Edit Stuff page
 
-You must login to add edit documents in the Stuff collection.
+After clicking on the "Edit" link associated with an item, this page displays that allows you to change and save it:
 
-![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/edit-page.png)
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/edit-stuff-page.png)
 
+#### Landing (after Login), Admin user
+
+You can define an "admin" user in the settings.json file. This user, after logging in, gets a special entry in the navbar:
+
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/admin-landing-page.png)
+
+#### Admin page (list all users stuff)
+
+To provide a simple example of a "super power" for Admin users, the Admin page lists all of the Stuff by all of the users:
+
+![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/admin-list-stuff-page.png)
+
+Note that non-admin users cannot get to this page, even if they type in the URL by hand.
 
 ### Collections
 
-The application implements a single Collection called "Stuff". Each Stuff document has two fields: a String "name" and a Number "quantity".
+The application implements a single Collection called "Stuff". Each Stuff document has the following fields: name, quantity, condition, and username. 
 
 The Stuff collection is defined in [imports/api/stuff/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/api/stuff/stuff.js).
 
@@ -163,7 +224,6 @@ The Stuff collection is initialized in [imports/startup/server/stuff.js](https:/
 ### CSS
 
 The application uses the [React implementation of Semantic UI](http://react.semantic-ui.com/).
-
 
 ### Routing
 
@@ -174,7 +234,7 @@ Routing is defined in [imports/ui/layouts/App.jsx](https://github.com/ics-softwa
 
 ### Authentication
 
-For authentication, the application uses the Meteor accounts package, with some simple customization in [imports/startup/server/accounts.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/startup/server/accounts.js).
+For authentication, the application uses the Meteor accounts package.
 
 When the application is run for the first time, a settings file (such as [config/settings.development.json](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/config/settings.development.json)) should be passed to Meteor. That will lead to a default account being created through the code in [imports/startup/server/accounts.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/startup/server/accounts.js).
 
@@ -209,7 +269,7 @@ It's significantly easier to do development with ESLint integrated directly into
 
 ## Screencast
 
-Click the image below to watch a walkthrough of this system. This screencast was generated for a previous version of meteor-application-template, so there may be small differences in the code base. 
+Click the image below to watch a walkthrough of this system. 
 
 [<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/meteor-application-template-youtube.png" width="600">](https://youtu.be/ik9WigX8y7k)
 
