@@ -267,9 +267,12 @@ ESLint should run without generating any errors.
 
 It's significantly easier to do development with ESLint integrated directly into your IDE (such as IntelliJ).
 
-## Screencast
+## Screencasts
 
-Click the image below to watch a walkthrough of this system. 
+For more information about this system, please watch one or more of the following screencasts:
 
-[<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/meteor-application-template-react-youtube.png" width="600">](https://youtu.be/ik9WigX8y7k)
-
+  * [Walkthrough of system user interface (5 min)](https://www.youtube.com/watch?v=shYgqco1AUs)
+  * [Data and accounts structure and initialization (10 min)](https://www.youtube.com/watch?v=7mobeyECNH8)
+  * [Navigation, routing, pages, components (10 min)](https://www.youtube.com/watch?v=V6rrX7sbWDM)
+  * [Forms (15 min)](https://www.youtube.com/watch?v=s77Vg6hgevI)
+  * [Authorization, authentication, and roles (10 min)](https://www.youtube.com/watch?v=_i1dgcP0zoI) 
