@@ -19,7 +19,7 @@ class StuffItem extends React.Component {
   }
 }
 
-/** Require a 'Stuff' document to be passed to this component. */
+/** Require a document to be passed to this component. */
 StuffItem.propTypes = {
   stuff: PropTypes.object.isRequired,
 };
