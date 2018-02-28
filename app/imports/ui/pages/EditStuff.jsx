@@ -40,7 +40,7 @@ class EditStuff extends React.Component {
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <TextField name='username' type='hidden' label={false} />
+                <TextField name='owner' type='hidden' label={false} />
               </Segment>
             </AutoForm>
           </Grid.Column>

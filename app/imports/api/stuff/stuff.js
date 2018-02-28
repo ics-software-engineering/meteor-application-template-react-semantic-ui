@@ -16,7 +16,7 @@ const StuffSchema = new SimpleSchema({
     type: Number,
     optional: false,
   },
-  username: {
+  owner: {
     type: String,
     optional: false,
   },

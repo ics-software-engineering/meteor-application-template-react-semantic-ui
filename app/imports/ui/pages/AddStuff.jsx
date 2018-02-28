@@ -35,7 +35,7 @@ class AddStuff extends React.Component {
   submit(data) {
     const { name, quantity, condition } = data;
     const username = Meteor.user().username;
-    Stuff.insert({ name, quantity, condition, username }, this.insertCallback);
+    Stuff.insert({ name, quantity, condition, owner: username }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -44,14 +44,14 @@ class AddStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={(ref) => this.formRef = ref} schema={StuffSchema} onSubmit={this.submit}>
+            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='name'/>
                 <TextField name='quantity'/>
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <TextField name='username' type='hidden' label={false} value='fakeuser@foo.com'/>
+                <TextField name='owner' type='hidden' label={false} value='fakeuser@foo.com'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

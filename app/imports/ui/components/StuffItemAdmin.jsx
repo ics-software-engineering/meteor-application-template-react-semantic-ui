@@ -10,7 +10,7 @@ class StuffItemAdmin extends React.Component {
           <Table.Cell>{this.props.stuff.name}</Table.Cell>
           <Table.Cell>{this.props.stuff.quantity}</Table.Cell>
           <Table.Cell>{this.props.stuff.condition}</Table.Cell>
-          <Table.Cell>{this.props.stuff.username}</Table.Cell>
+          <Table.Cell>{this.props.stuff.owner}</Table.Cell>
         </Table.Row>
     );
   }

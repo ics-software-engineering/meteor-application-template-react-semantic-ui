@@ -4,7 +4,7 @@ import { Stuff } from '../../api/stuff/stuff.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.username})`);
+  console.log(`  Adding: ${data.name} (${data.owner})`);
   Stuff.insert(data);
 }
 
@@ -20,7 +20,7 @@ if (Stuff.find().count() === 0) {
 Meteor.publish('Stuff', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Stuff.find({ username });
+    return Stuff.find({ owner: username });
   }
   return this.ready();
 });
