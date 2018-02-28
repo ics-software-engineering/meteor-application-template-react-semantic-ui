@@ -7,7 +7,7 @@ Meteor-application-template-react is a sample Meteor 1.6 application that illust
   * Use of [Uniforms](https://github.com/vazco/uniforms) for form development
   * Use of [alanning:Roles](https://github.com/alanning/meteor-roles) to implement a special "Admin" user.
   * Simple authorization, authentication, and registration using built-in Meteor packages. 
-  * 
+  * Simple initialization of users and data from a settings file.
   * Simple quality assurance using [ESLint](http://eslint.org) with packages to partially enforce the [Meteor Coding Standards](https://guide.meteor.com/code-style.html) and the [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript).
 
 The goal of this template is to help you get quickly started doing Meteor development by providing a reasonable directory structure for development and deployment, a set of common extensions to the core framework, and boilerplate code to implement basic page display, navigation, forms, roles, and collection manipulation.
