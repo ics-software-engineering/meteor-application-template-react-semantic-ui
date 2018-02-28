@@ -34,8 +34,8 @@ class AddStuff extends React.Component {
   /** On submit, insert the data. */
   submit(data) {
     const { name, quantity, condition } = data;
-    const username = Meteor.user().username;
-    Stuff.insert({ name, quantity, condition, owner: username }, this.insertCallback);
+    const owner = Meteor.user().username;
+    Stuff.insert({ name, quantity, condition, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
