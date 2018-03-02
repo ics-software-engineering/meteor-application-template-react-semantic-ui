@@ -1,9 +1,10 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
-import { Stuff, StuffSchema } from '/imports/api/stuff/stuff';
+import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import NumField from 'uniforms-semantic/NumField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
@@ -18,7 +19,7 @@ class EditStuff extends React.Component {
   /** On successful submit, insert the data. */
   submit(data) {
     const { name, quantity, condition, _id } = data;
-    Stuff.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
+    Stuffs.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -37,7 +38,7 @@ class EditStuff extends React.Component {
             <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>
-                <TextField name='quantity'/>
+                <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
@@ -64,7 +65,7 @@ export default withTracker(({ match }) => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
-    doc: Stuff.findOne(documentId),
+    doc: Stuffs.findOne(documentId),
     ready: subscription.ready(),
   };
 })(EditStuff);

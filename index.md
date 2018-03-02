@@ -269,7 +269,7 @@ It's significantly easier to do development with ESLint integrated directly into
 
 ## Screencasts
 
-For more information about this system, please watch one or more of the following screencasts:
+For more information about this system, please watch one or more of the following screencasts. Note that the current source code might differ slightly from the code in these screencasts, but the changes should be very minor.
 
   * [Walkthrough of system user interface (5 min)](https://www.youtube.com/watch?v=shYgqco1AUs)
   * [Data and accounts structure and initialization (10 min)](https://www.youtube.com/watch?v=7mobeyECNH8)
