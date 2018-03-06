@@ -4,27 +4,27 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.39",
     "classnames": "^2.2.5",
-    "meteor-node-stubs": "~0.3.2",
-    "prop-types": "^15.6.0",
+    "meteor-node-stubs": "^0.3.3",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-css": "^2.3.0",
     "semantic-ui-react": "^0.77.2",
     "simpl-schema": "^1.4.2",
-    "uniforms": "^1.23.0",
-    "uniforms-semantic": "^1.23.0"
+    "uniforms": "^1.23.1",
+    "uniforms-semantic": "^1.23.1"
   },
   "devDependencies": {
-    "eslint": "^4.17.0",
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-meteor": "^4.1.6",
-    "eslint-plugin-react": "^7.6.0"
+    "eslint-plugin-meteor": "^4.2.1",
+    "eslint-plugin-react": "^7.7.0"
   },
   "scripts": {
     "start": "meteor --no-release-check --settings ../config/settings.development.json",
