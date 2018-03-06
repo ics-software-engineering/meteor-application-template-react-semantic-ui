@@ -18,7 +18,6 @@ class AddStuff extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-    this.render = this.render.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
