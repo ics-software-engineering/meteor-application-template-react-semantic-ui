@@ -17,7 +17,7 @@ var React = require("react");
 var meteor_1 = require("meteor/meteor");
 var semantic_ui_react_1 = require("semantic-ui-react");
 var stuff_1 = require("/imports/api/stuff/stuff");
-var StuffItemAdmin = require("/imports/ui/components/StuffItemAdmin");
+var StuffItemAdmin_1 = require("/imports/ui/components/StuffItemAdmin");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
 var PropTypes = require("prop-types");
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -41,7 +41,7 @@ var ListStuffAdmin = /** @class */ (function (_super) {
                         React.createElement(semantic_ui_react_1.Table.HeaderCell, null, "Quantity"),
                         React.createElement(semantic_ui_react_1.Table.HeaderCell, null, "Condition"),
                         React.createElement(semantic_ui_react_1.Table.HeaderCell, null, "Owner"))),
-                React.createElement(semantic_ui_react_1.Table.Body, null, this.props.stuffs.map(function (stuff) { return React.createElement(StuffItemAdmin, { key: stuff._id, stuff: stuff }); })))));
+                React.createElement(semantic_ui_react_1.Table.Body, null, this.props.stuffs.map(function (stuff) { return React.createElement(StuffItemAdmin_1.default, { key: stuff._id, stuff: stuff }); })))));
     };
     return ListStuffAdmin;
 }(React.Component));

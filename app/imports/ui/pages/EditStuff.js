@@ -15,18 +15,18 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
-var stuff_1 = require("/imports/api/stuff/stuff");
 var themeteorchef_bert_1 = require("meteor/themeteorchef:bert");
-var AutoForm = require("uniforms-semantic/AutoForm");
-var TextField = require("uniforms-semantic/TextField");
-var NumField = require("uniforms-semantic/NumField");
-var SelectField = require("uniforms-semantic/SelectField");
-var SubmitField = require("uniforms-semantic/SubmitField");
-var HiddenField = require("uniforms-semantic/HiddenField");
-var ErrorsField = require("uniforms-semantic/ErrorsField");
+var AutoForm_1 = require("uniforms-semantic/AutoForm");
+var TextField_1 = require("uniforms-semantic/TextField");
+var NumField_1 = require("uniforms-semantic/NumField");
+var SelectField_1 = require("uniforms-semantic/SelectField");
+var SubmitField_1 = require("uniforms-semantic/SubmitField");
+var HiddenField_1 = require("uniforms-semantic/HiddenField");
+var ErrorsField_1 = require("uniforms-semantic/ErrorsField");
 var meteor_1 = require("meteor/meteor");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
 var PropTypes = require("prop-types");
+var stuff_1 = require("../../api/stuff/stuff");
 /** Renders the Page for editing a single document. */
 var EditStuff = /** @class */ (function (_super) {
     __extends(EditStuff, _super);
@@ -49,14 +49,14 @@ var EditStuff = /** @class */ (function (_super) {
         return (React.createElement(semantic_ui_react_1.Grid, { container: true, centered: true },
             React.createElement(semantic_ui_react_1.Grid.Column, null,
                 React.createElement(semantic_ui_react_1.Header, { as: "h2", textAlign: "center" }, "Edit Stuff"),
-                React.createElement(AutoForm, { schema: stuff_1.StuffSchema, onSubmit: this.submit, model: this.props.doc },
+                React.createElement(AutoForm_1.default, { schema: stuff_1.StuffSchema, onSubmit: this.submit, model: this.props.doc },
                     React.createElement(semantic_ui_react_1.Segment, null,
-                        React.createElement(TextField, { name: 'name' }),
-                        React.createElement(NumField, { name: 'quantity', decimal: false }),
-                        React.createElement(SelectField, { name: 'condition' }),
-                        React.createElement(SubmitField, { value: 'Submit' }),
-                        React.createElement(ErrorsField, null),
-                        React.createElement(HiddenField, { name: 'owner' }))))));
+                        React.createElement(TextField_1.default, { name: 'name' }),
+                        React.createElement(NumField_1.default, { name: 'quantity', decimal: false }),
+                        React.createElement(SelectField_1.default, { name: 'condition' }),
+                        React.createElement(SubmitField_1.default, { value: 'Submit' }),
+                        React.createElement(ErrorsField_1.default, null),
+                        React.createElement(HiddenField_1.default, { name: 'owner' }))))));
     };
     return EditStuff;
 }(React.Component));

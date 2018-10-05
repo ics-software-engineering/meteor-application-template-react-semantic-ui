@@ -17,7 +17,7 @@ var React = require("react");
 var meteor_1 = require("meteor/meteor");
 var semantic_ui_react_1 = require("semantic-ui-react");
 var stuff_1 = require("/imports/api/stuff/stuff");
-var StuffItem = require("/imports/ui/components/StuffItem");
+var StuffItem_1 = require("/imports/ui/components/StuffItem");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
 var PropTypes = require("prop-types");
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -41,7 +41,7 @@ var ListStuff = /** @class */ (function (_super) {
                         React.createElement(semantic_ui_react_1.Table.HeaderCell, null, "Quantity"),
                         React.createElement(semantic_ui_react_1.Table.HeaderCell, null, "Condition"),
                         React.createElement(semantic_ui_react_1.Table.HeaderCell, null, "Edit"))),
-                React.createElement(semantic_ui_react_1.Table.Body, null, this.props.stuffs.map(function (stuff) { return React.createElement(StuffItem, { key: stuff._id, stuff: stuff }); })))));
+                React.createElement(semantic_ui_react_1.Table.Body, null, this.props.stuffs.map(function (stuff) { return React.createElement(StuffItem_1.default, { key: stuff._id, stuff: stuff }); })))));
     };
     return ListStuff;
 }(React.Component));

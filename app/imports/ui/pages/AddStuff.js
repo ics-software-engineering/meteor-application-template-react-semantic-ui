@@ -14,17 +14,17 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var stuff_1 = require("/imports/api/stuff/stuff");
 var semantic_ui_react_1 = require("semantic-ui-react");
-var AutoForm = require("uniforms-semantic/AutoForm");
-var TextField = require("uniforms-semantic/TextField");
-var NumField = require("uniforms-semantic/NumField");
-var SelectField = require("uniforms-semantic/SelectField");
-var SubmitField = require("uniforms-semantic/SubmitField");
-var HiddenField = require("uniforms-semantic/HiddenField");
-var ErrorsField = require("uniforms-semantic/ErrorsField");
+var AutoForm_1 = require("uniforms-semantic/AutoForm");
+var TextField_1 = require("uniforms-semantic/TextField");
+var NumField_1 = require("uniforms-semantic/NumField");
+var SelectField_1 = require("uniforms-semantic/SelectField");
+var SubmitField_1 = require("uniforms-semantic/SubmitField");
+var HiddenField_1 = require("uniforms-semantic/HiddenField");
+var ErrorsField_1 = require("uniforms-semantic/ErrorsField");
 var themeteorchef_bert_1 = require("meteor/themeteorchef:bert");
 var meteor_1 = require("meteor/meteor");
+var stuff_1 = require("../../api/stuff/stuff");
 /** Renders the Page for adding a document. */
 var AddStuff = /** @class */ (function (_super) {
     __extends(AddStuff, _super);
@@ -58,14 +58,14 @@ var AddStuff = /** @class */ (function (_super) {
         return (React.createElement(semantic_ui_react_1.Grid, { container: true, centered: true },
             React.createElement(semantic_ui_react_1.Grid.Column, null,
                 React.createElement(semantic_ui_react_1.Header, { as: "h2", textAlign: "center" }, "Add Stuff"),
-                React.createElement(AutoForm, { ref: function (ref) { _this.formRef = ref; }, schema: stuff_1.StuffSchema, onSubmit: this.submit },
+                React.createElement(AutoForm_1.default, { ref: function (ref) { _this.formRef = ref; }, schema: stuff_1.StuffSchema, onSubmit: this.submit },
                     React.createElement(semantic_ui_react_1.Segment, null,
-                        React.createElement(TextField, { name: 'name' }),
-                        React.createElement(NumField, { name: 'quantity', decimal: false }),
-                        React.createElement(SelectField, { name: 'condition' }),
-                        React.createElement(SubmitField, { value: 'Submit' }),
-                        React.createElement(ErrorsField, null),
-                        React.createElement(HiddenField, { name: 'owner', value: 'fakeuser@foo.com' }))))));
+                        React.createElement(TextField_1.default, { name: 'name' }),
+                        React.createElement(NumField_1.default, { name: 'quantity', decimal: false }),
+                        React.createElement(SelectField_1.default, { name: 'condition' }),
+                        React.createElement(SubmitField_1.default, { value: 'Submit' }),
+                        React.createElement(ErrorsField_1.default, null),
+                        React.createElement(HiddenField_1.default, { name: 'owner', value: 'fakeuser@foo.com' }))))));
     };
     return AddStuff;
 }(React.Component));

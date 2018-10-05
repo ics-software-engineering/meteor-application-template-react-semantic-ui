@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
-import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
 import { Bert } from 'meteor/themeteorchef:bert';
-import * as AutoForm from 'uniforms-semantic/AutoForm';
-import * as TextField from 'uniforms-semantic/TextField';
-import * as NumField from 'uniforms-semantic/NumField';
-import * as SelectField from 'uniforms-semantic/SelectField';
-import * as SubmitField from 'uniforms-semantic/SubmitField';
-import * as HiddenField from 'uniforms-semantic/HiddenField';
-import * as ErrorsField from 'uniforms-semantic/ErrorsField';
+import AutoForm from 'uniforms-semantic/AutoForm';
+import TextField from 'uniforms-semantic/TextField';
+import NumField from 'uniforms-semantic/NumField';
+import SelectField from 'uniforms-semantic/SelectField';
+import SubmitField from 'uniforms-semantic/SubmitField';
+import HiddenField from 'uniforms-semantic/HiddenField';
+import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import * as PropTypes from 'prop-types';
+import { Stuffs, StuffSchema } from '../../api/stuff/stuff';
 
 /** Renders the Page for editing a single document. */
-class EditStuff extends React.Component {
+class EditStuff extends React.Component<{}, {}> {
 
   /** On successful submit, insert the data. */
   submit(data) {
