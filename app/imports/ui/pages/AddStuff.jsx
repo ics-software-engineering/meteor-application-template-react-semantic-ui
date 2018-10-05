@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import AutoForm from 'uniforms-semantic/AutoForm';
-import TextField from 'uniforms-semantic/TextField';
-import NumField from 'uniforms-semantic/NumField';
-import SelectField from 'uniforms-semantic/SelectField';
-import SubmitField from 'uniforms-semantic/SubmitField';
-import HiddenField from 'uniforms-semantic/HiddenField';
-import ErrorsField from 'uniforms-semantic/ErrorsField';
+import * as AutoForm from 'uniforms-semantic/AutoForm';
+import * as TextField from 'uniforms-semantic/TextField';
+import * as NumField from 'uniforms-semantic/NumField';
+import * as SelectField from 'uniforms-semantic/SelectField';
+import * as SubmitField from 'uniforms-semantic/SubmitField';
+import * as HiddenField from 'uniforms-semantic/HiddenField';
+import * as ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 

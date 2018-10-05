@@ -3,6 +3,9 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
+    "@types/meteor": "^1.4.22",
+    "@types/mongodb": "^3.1.10",
+    "@types/react": "^16.4.14",
     "classnames": "^2.2.5",
     "core-js": "^2.5.7",
     "graphql": "^0.8.2",
@@ -26,7 +29,10 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-meteor": "^5.1.0",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "typescript": "^3.1.1",
+    "typescript-eslint-parser": "^19.0.2",
+    "typescript-estree": "^1.1.0"
   },
   "scripts": {
     "start": "meteor --no-release-check --settings ../config/settings.development.json",
