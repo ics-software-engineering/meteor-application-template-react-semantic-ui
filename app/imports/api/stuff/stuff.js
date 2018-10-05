@@ -1,5 +1,5 @@
 import { Mongo } from 'meteor/mongo';
-import * as SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Create a Meteor collection. */

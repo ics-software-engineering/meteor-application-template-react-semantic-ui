@@ -119,7 +119,7 @@ The app/ directory has this structure:
 ```
 client/
   main.html      # The boilerplate HTML with a "root" div to be manipulated by React.
-  main.js        # import startup files.
+  main.ts        # import startup files.
 
 imports/
   api/           # Define collections
@@ -137,12 +137,12 @@ node_modules/    # managed by Meteor
 public/          # static assets (like images) can go here.
   
 server/
-   main.js       # import the server-side js files.
+   main.ts       # import the server-side js files.
 ```
 
 ### Import conventions
 
-This system adheres to the Meteor guideline of putting all application code in the imports/ directory, and using client/main.js and server/main.js to import the code appropriate for the client and server in an appropriate order.
+This system adheres to the Meteor guideline of putting all application code in the imports/ directory, and using client/main.ts and server/main.ts to import the code appropriate for the client and server in an appropriate order.
 
 ### Application functionality
 
