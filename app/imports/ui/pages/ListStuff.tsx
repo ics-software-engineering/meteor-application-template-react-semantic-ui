@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
-import StuffItem from '/imports/ui/components/StuffItem';
+import { Stuffs } from '../../api/stuff/stuff';
+import StuffItem from '../../ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
 // import * as PropTypes from 'prop-types';
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
-import StuffItemAdmin from '/imports/ui/components/StuffItemAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Stuffs } from '../../api/stuff/stuff';
+import StuffItemAdmin from '../../ui/components/StuffItemAdmin';
 import * as PropTypes from 'prop-types';
 
 type ListStuffAdminProps = {

@@ -16,8 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var meteor_1 = require("meteor/meteor");
 var semantic_ui_react_1 = require("semantic-ui-react");
-var stuff_1 = require("/imports/api/stuff/stuff");
-var StuffItem_1 = require("/imports/ui/components/StuffItem");
+var stuff_1 = require("../../api/stuff/stuff");
+var StuffItem_1 = require("../../ui/components/StuffItem");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 var ListStuff = /** @class */ (function (_super) {

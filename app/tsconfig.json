@@ -6,6 +6,7 @@
     "alwaysStrict": true,
     "sourceMap": true,
     "jsx": "react",
+    "lib": ["DOM"],
     "allowJs": false,
     "noImplicitAny": false,
     "strictNullChecks": false
