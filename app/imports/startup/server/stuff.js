@@ -1,34 +1,32 @@
-import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/stuff.js';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var meteor_1 = require("meteor/meteor");
+var alanning_roles_1 = require("meteor/alanning:roles");
+var stuff_js_1 = require("../../api/stuff/stuff.js");
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.insert(data);
+    console.log("  Adding: " + data.name + " (" + data.owner + ")");
+    stuff_js_1.Stuffs.insert(data);
 }
-
 /** Initialize the collection if empty. */
-if (Stuffs.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addData(data));
-  }
+if (stuff_js_1.Stuffs.find().count() === 0) {
+    if (meteor_1.Meteor.settings.defaultData) {
+        console.log('Creating default data.');
+        meteor_1.Meteor.settings.defaultData.map(function (data) { return addData(data); });
+    }
 }
-
 /** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish('Stuff', function publish() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.find({ owner: username });
-  }
-  return this.ready();
+meteor_1.Meteor.publish('Stuff', function publish() {
+    if (this.userId) {
+        var username = meteor_1.Meteor.users.findOne(this.userId).username;
+        return stuff_js_1.Stuffs.find({ owner: username });
+    }
+    return this.ready();
 });
-
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-Meteor.publish('StuffAdmin', function publish() {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.find();
-  }
-  return this.ready();
+meteor_1.Meteor.publish('StuffAdmin', function publish() {
+    if (this.userId && alanning_roles_1.Roles.userIsInRole(this.userId, 'admin')) {
+        return stuff_js_1.Stuffs.find();
+    }
+    return this.ready();
 });

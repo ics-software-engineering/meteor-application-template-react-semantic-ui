@@ -229,7 +229,7 @@ The application uses the [React implementation of Semantic UI](http://react.sema
 
 For display and navigation among its four pages, the application uses [React Router](https://reacttraining.com/react-router/).
 
-Routing is defined in [imports/ui/layouts/App.jsx](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/ui/layouts/App.jsx).
+Routing is defined in [imports/ui/layouts/App.tsx](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/ui/layouts/App.jsx).
 
 
 ### Authentication
