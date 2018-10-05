@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var PropTypes = require("prop-types");
+// import * as PropTypes from 'prop-types';
 var meteor_1 = require("meteor/meteor");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
 var react_router_dom_1 = require("react-router-dom");
@@ -44,9 +44,9 @@ var NavBar = /** @class */ (function (_super) {
     return NavBar;
 }(React.Component));
 /** Declare the types of all properties. */
-NavBar.propTypes = {
-    currentUser: PropTypes.string,
-};
+// NavBar.propTypes = {
+//   currentUser: PropTypes.string,
+// };
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 var NavBarContainer = react_meteor_data_1.withTracker(function () { return ({
     currentUser: meteor_1.Meteor.user() ? meteor_1.Meteor.user().username : '',

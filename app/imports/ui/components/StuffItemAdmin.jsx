@@ -15,7 +15,6 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
-var PropTypes = require("prop-types");
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 var StuffItemAdmin = /** @class */ (function (_super) {
     __extends(StuffItemAdmin, _super);
@@ -33,7 +32,7 @@ var StuffItemAdmin = /** @class */ (function (_super) {
     return StuffItemAdmin;
 }(React.Component));
 /** Require a document to be passed to this component. */
-StuffItemAdmin.propTypes = {
-    stuff: PropTypes.object.isRequired,
-};
+// StuffItemAdmin.propTypes = {
+//   stuff: PropTypes.object.isRequired,
+// };
 exports.default = StuffItemAdmin;

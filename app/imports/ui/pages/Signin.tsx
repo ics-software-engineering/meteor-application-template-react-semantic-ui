@@ -4,11 +4,27 @@ import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
+type SigninProps = {
+  location: {
+    state: {
+      from: string;
+    };
+  };
+}
+
+type SigninState = {
+    email: string;
+    password: string;
+    error: string;
+    redirectToReferer: boolean;
+}
+
+
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
  * Authentication errors modify the component’s state to be displayed
  */
-export default class Signin extends React.Component {
+export default class Signin extends React.Component<SigninProps, SigninState> {
 
   /** Initialize component state with properties for login and redirection. */
   constructor(props) {
@@ -95,6 +111,6 @@ export default class Signin extends React.Component {
 }
 
 /** Ensure that the React Router location object is available in case we need to redirect. */
-Signin.propTypes = {
-  location: PropTypes.object,
-};
+// Signin.propTypes = {
+//   location: PropTypes.object,
+// };

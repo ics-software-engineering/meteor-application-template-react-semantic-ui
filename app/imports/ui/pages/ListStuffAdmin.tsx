@@ -6,8 +6,13 @@ import StuffItemAdmin from '/imports/ui/components/StuffItemAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import * as PropTypes from 'prop-types';
 
+type ListStuffAdminProps = {
+  ready: boolean;
+  stuffs: any; // CAM: Don't like the any should be an array of stuff.
+}
+
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuffAdmin extends React.Component {
+class ListStuffAdmin extends React.Component<ListStuffAdminProps, object> {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {

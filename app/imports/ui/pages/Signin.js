@@ -14,7 +14,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var PropTypes = require("prop-types");
 var react_router_dom_1 = require("react-router-dom");
 var meteor_1 = require("meteor/meteor");
 var semantic_ui_react_1 = require("semantic-ui-react");
@@ -78,7 +77,7 @@ var Signin = /** @class */ (function (_super) {
 }(React.Component));
 exports.default = Signin;
 /** Ensure that the React Router location object is available in case we need to redirect. */
-Signin.propTypes = {
-    location: PropTypes.object,
-};
+// Signin.propTypes = {
+//   location: PropTypes.object,
+// };
 //# sourceMappingURL=Signin.js.map

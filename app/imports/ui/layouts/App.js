@@ -34,7 +34,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var PropTypes = require("prop-types");
+// import * as PropTypes from 'prop-types';
 var meteor_1 = require("meteor/meteor");
 require("semantic-ui-css/semantic.css");
 var alanning_roles_1 = require("meteor/alanning:roles");
@@ -104,14 +104,14 @@ var AdminProtectedRoute = function (_a) {
         } })));
 };
 /** Require a component and location to be passed to each ProtectedRoute. */
-ProtectedRoute.propTypes = {
-    component: PropTypes.func.isRequired,
-    location: PropTypes.object,
-};
+// ProtectedRoute.propTypes = {
+//   component: PropTypes.func.isRequired,
+//   location: PropTypes.object,
+// };
 /** Require a component and location to be passed to each AdminProtectedRoute. */
-AdminProtectedRoute.propTypes = {
-    component: PropTypes.func.isRequired,
-    location: PropTypes.object,
-};
+// AdminProtectedRoute.propTypes = {
+//   component: PropTypes.func.isRequired,
+//   location: PropTypes.object,
+// };
 exports.default = App;
 //# sourceMappingURL=App.js.map

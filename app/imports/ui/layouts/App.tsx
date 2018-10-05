@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+// import * as PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import 'semantic-ui-css/semantic.css';
 import { Roles } from 'meteor/alanning:roles';
@@ -79,15 +79,15 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
 );
 
 /** Require a component and location to be passed to each ProtectedRoute. */
-ProtectedRoute.propTypes = {
-  component: PropTypes.func.isRequired,
-  location: PropTypes.object,
-};
+// ProtectedRoute.propTypes = {
+//   component: PropTypes.func.isRequired,
+//   location: PropTypes.object,
+// };
 
 /** Require a component and location to be passed to each AdminProtectedRoute. */
-AdminProtectedRoute.propTypes = {
-  component: PropTypes.func.isRequired,
-  location: PropTypes.object,
-};
+// AdminProtectedRoute.propTypes = {
+//   component: PropTypes.func.isRequired,
+//   location: PropTypes.object,
+// };
 
 export default App;

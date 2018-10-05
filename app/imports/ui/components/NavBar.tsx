@@ -1,13 +1,18 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+// import * as PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Dropdown, Header } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
+type NavBarProps = {
+    currentUser: string;
+}
+
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
-class NavBar extends React.Component {
+class NavBar extends React.Component<NavBarProps, object> {
+
   render() {
     const menuStyle = { marginBottom: '10px' };
     return (
@@ -44,9 +49,9 @@ class NavBar extends React.Component {
 }
 
 /** Declare the types of all properties. */
-NavBar.propTypes = {
-  currentUser: PropTypes.string,
-};
+// NavBar.propTypes = {
+//   currentUser: PropTypes.string,
+// };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 const NavBarContainer = withTracker(() => ({

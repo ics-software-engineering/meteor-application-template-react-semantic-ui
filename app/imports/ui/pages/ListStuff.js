@@ -19,7 +19,6 @@ var semantic_ui_react_1 = require("semantic-ui-react");
 var stuff_1 = require("/imports/api/stuff/stuff");
 var StuffItem_1 = require("/imports/ui/components/StuffItem");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
-var PropTypes = require("prop-types");
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 var ListStuff = /** @class */ (function (_super) {
     __extends(ListStuff, _super);
@@ -46,10 +45,10 @@ var ListStuff = /** @class */ (function (_super) {
     return ListStuff;
 }(React.Component));
 /** Require an array of Stuff documents in the props. */
-ListStuff.propTypes = {
-    stuffs: PropTypes.array.isRequired,
-    ready: PropTypes.bool.isRequired,
-};
+// ListStuff.propTypes = {
+//   stuffs: PropTypes.array.isRequired,
+//   ready: PropTypes.bool.isRequired,
+// };
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 exports.default = react_meteor_data_1.withTracker(function () {
     // Get access to Stuff documents.

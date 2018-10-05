@@ -4,10 +4,15 @@ import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { Stuffs } from '/imports/api/stuff/stuff';
 import StuffItem from '/imports/ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
-import * as PropTypes from 'prop-types';
+// import * as PropTypes from 'prop-types';
+
+type ListStuffProps = {
+  ready: boolean;
+  stuffs: any; // CAM: Don't like the any should be an array of stuff.
+}
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuff extends React.Component {
+class ListStuff extends React.Component<ListStuffProps, object> {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -38,10 +43,10 @@ class ListStuff extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-ListStuff.propTypes = {
-  stuffs: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
-};
+// ListStuff.propTypes = {
+//   stuffs: PropTypes.array.isRequired,
+//   ready: PropTypes.bool.isRequired,
+// };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {

@@ -25,7 +25,7 @@ var HiddenField_1 = require("uniforms-semantic/HiddenField");
 var ErrorsField_1 = require("uniforms-semantic/ErrorsField");
 var meteor_1 = require("meteor/meteor");
 var react_meteor_data_1 = require("meteor/react-meteor-data");
-var PropTypes = require("prop-types");
+// import * as PropTypes from 'prop-types';
 var stuff_1 = require("../../api/stuff/stuff");
 /** Renders the Page for editing a single document. */
 var EditStuff = /** @class */ (function (_super) {
@@ -61,11 +61,11 @@ var EditStuff = /** @class */ (function (_super) {
     return EditStuff;
 }(React.Component));
 /** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
-EditStuff.propTypes = {
-    doc: PropTypes.object,
-    model: PropTypes.object,
-    ready: PropTypes.bool.isRequired,
-};
+// EditStuff.propTypes = {
+//   doc: PropTypes.object,
+//   model: PropTypes.object,
+//   ready: PropTypes.bool.isRequired,
+// };
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 exports.default = react_meteor_data_1.withTracker(function (_a) {
     var match = _a.match;

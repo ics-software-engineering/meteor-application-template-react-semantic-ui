@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
+type SignupState = {
+  email: string;
+  password: string;
+  error: string;
+}
+
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
  */
-export default class Signup extends React.Component {
+export default class Signup extends React.Component<object, SignupState> {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
@@ -18,7 +24,7 @@ export default class Signup extends React.Component {
   }
 
   /** Update the form controls each time the user interacts with them. */
-  handleChange(e, { name, value }) {
+  handleChange(e, { name, value  }) {
     this.setState({ [name]: value });
   }
 
