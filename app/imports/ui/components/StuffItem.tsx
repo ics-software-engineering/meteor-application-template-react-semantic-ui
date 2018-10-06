@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Table } from 'semantic-ui-react';
-// import * as PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
 type StuffProps = {
@@ -27,11 +26,6 @@ class StuffItem extends React.Component<StuffProps, object> {
     );
   }
 }
-
-/** Require a document to be passed to this component. */
-// StuffItem.propTypes = {
-//   stuff: PropTypes.object.isRequired,
-// };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(StuffItem);

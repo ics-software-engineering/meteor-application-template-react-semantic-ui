@@ -30,9 +30,5 @@ var StuffItemAdmin = /** @class */ (function (_super) {
     };
     return StuffItemAdmin;
 }(React.Component));
-/** Require a document to be passed to this component. */
-// StuffItemAdmin.propTypes = {
-//   stuff: PropTypes.object.isRequired,
-// };
 exports.default = StuffItemAdmin;
 //# sourceMappingURL=StuffItemAdmin.js.map

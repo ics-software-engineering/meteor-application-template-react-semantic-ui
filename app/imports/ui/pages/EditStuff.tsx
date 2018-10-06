@@ -10,7 +10,6 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-// import * as PropTypes from 'prop-types';
 import { Stuffs, StuffSchema } from '../../api/stuff/stuff';
 
 type EditStuffProps = {
@@ -55,13 +54,6 @@ class EditStuff extends React.Component<EditStuffProps, object> {
     );
   }
 }
-
-/** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
-// EditStuff.propTypes = {
-//   doc: PropTypes.object,
-//   model: PropTypes.object,
-//   ready: PropTypes.bool.isRequired,
-// };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(({ match }) => {

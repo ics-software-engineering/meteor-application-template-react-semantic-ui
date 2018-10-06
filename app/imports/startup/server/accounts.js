@@ -28,3 +28,4 @@ if (meteor_1.Meteor.users.find().count() === 0) {
         console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
     }
 }
+//# sourceMappingURL=accounts.js.map

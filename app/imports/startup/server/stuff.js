@@ -30,3 +30,4 @@ meteor_1.Meteor.publish('StuffAdmin', function publish() {
     }
     return this.ready();
 });
+//# sourceMappingURL=stuff.js.map

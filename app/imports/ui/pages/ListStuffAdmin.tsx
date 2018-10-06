@@ -4,7 +4,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { Stuffs } from '../../api/stuff/stuff';
 import StuffItemAdmin from '../../ui/components/StuffItemAdmin';
-import * as PropTypes from 'prop-types';
 
 type ListStuffAdminProps = {
   ready: boolean;
@@ -41,12 +40,6 @@ class ListStuffAdmin extends React.Component<ListStuffAdminProps, object> {
     );
   }
 }
-
-/** Require an array of Stuff documents in the props. */
-ListStuffAdmin.propTypes = {
-  stuffs: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
-};
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {

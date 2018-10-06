@@ -6,14 +6,18 @@
     "alwaysStrict": true,
     "sourceMap": true,
     "jsx": "react",
-    "lib": ["DOM"],
+    "lib": [
+      "dom",
+      "es2015"
+    ],
     "allowJs": false,
     "noImplicitAny": false,
     "strictNullChecks": false
   },
   "include": [
     "client/**/*",
-    "server/**/*"
+    "server/**/*",
+    "imports/**/*"
   ],
   "exclude": [
     "node_modules",

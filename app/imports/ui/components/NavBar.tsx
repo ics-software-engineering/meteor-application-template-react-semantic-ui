@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import * as PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
@@ -47,11 +46,6 @@ class NavBar extends React.Component<NavBarProps, object> {
     );
   }
 }
-
-/** Declare the types of all properties. */
-// NavBar.propTypes = {
-//   currentUser: PropTypes.string,
-// };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 const NavBarContainer = withTracker(() => ({

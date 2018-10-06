@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Table } from 'semantic-ui-react';
-// import * as PropTypes from 'prop-types';
 
 type StuffItemAdminProps = {
     stuff: {
@@ -24,10 +23,5 @@ class StuffItemAdmin extends React.Component<StuffItemAdminProps, object> {
     );
   }
 }
-
-/** Require a document to be passed to this component. */
-// StuffItemAdmin.propTypes = {
-//   stuff: PropTypes.object.isRequired,
-// };
 
 export default StuffItemAdmin;

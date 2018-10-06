@@ -4,7 +4,6 @@ import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { Stuffs } from '../../api/stuff/stuff';
 import StuffItem from '../../ui/components/StuffItem';
 import { withTracker } from 'meteor/react-meteor-data';
-// import * as PropTypes from 'prop-types';
 
 type ListStuffProps = {
   ready: boolean;
@@ -41,12 +40,6 @@ class ListStuff extends React.Component<ListStuffProps, object> {
     );
   }
 }
-
-/** Require an array of Stuff documents in the props. */
-// ListStuff.propTypes = {
-//   stuffs: PropTypes.array.isRequired,
-//   ready: PropTypes.bool.isRequired,
-// };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {

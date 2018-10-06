@@ -44,11 +44,6 @@ var ListStuff = /** @class */ (function (_super) {
     };
     return ListStuff;
 }(React.Component));
-/** Require an array of Stuff documents in the props. */
-// ListStuff.propTypes = {
-//   stuffs: PropTypes.array.isRequired,
-//   ready: PropTypes.bool.isRequired,
-// };
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 exports.default = react_meteor_data_1.withTracker(function () {
     // Get access to Stuff documents.
