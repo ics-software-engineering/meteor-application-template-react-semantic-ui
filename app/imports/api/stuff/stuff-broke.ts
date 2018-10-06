@@ -1,12 +1,10 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
-
-/** Create a Meteor collection. */
-const Stuffs: Mongo.Collection<any> = new Mongo.Collection('Stuffs');
+import createCollection from '../utils/create-meteor-collection';
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
-const StuffSchema = new SimpleSchema({
+export const StuffSchema = new SimpleSchema({
   name: String,
   quantity: Number,
   owner: String,
@@ -17,8 +15,13 @@ const StuffSchema = new SimpleSchema({
   },
 }, { tracker: Tracker });
 
-/** Attach this schema to the collection. */
-// Stuffs.attachSchema(StuffSchema);
+export interface IStuff {
+  name: string;
+  quantity: number;
+  owner: string;
+  condition: {
+    type: string;
+  }
+}
 
-/** Make the collection and schema available to other code. */
-export { Stuffs, StuffSchema };
+export const Stuffs: Mongo.Collection<IStuff> = createCollection<IStuff>('Stuffs', StuffSchema);

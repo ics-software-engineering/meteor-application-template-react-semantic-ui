@@ -217,9 +217,9 @@ Note that non-admin users cannot get to this page, even if they type in the URL 
 
 The application implements a single Collection called "Stuff". Each Stuff document has the following fields: name, quantity, condition, and username. 
 
-The Stuff collection is defined in [imports/api/stuff/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/api/stuff/stuff.js).
+The Stuff collection is defined in [imports/api/stuff/stuff-broke.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/api/stuff/stuff.js).
 
-The Stuff collection is initialized in [imports/startup/server/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/startup/server/stuff.js).
+The Stuff collection is initialized in [imports/startup/server/stuff-broke.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/startup/server/stuff.js).
 
 ### CSS
 
