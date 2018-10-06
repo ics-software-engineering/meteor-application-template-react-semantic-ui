@@ -1,1 +1,1 @@
-import '/imports/api/stuff';
+import '../../api/stuff';
