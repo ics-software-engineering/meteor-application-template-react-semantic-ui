@@ -23,7 +23,7 @@ react-meteor-data@0.2.6-beta.16  # Support withTracker to connect Meteor data to
 accounts-password@1.5.1                # https://guide.meteor.com/accounts.html
 
 # Collection support
-aldeed:collection2-core          # Integrate node-simpl-schema with Meteor collections.
+aldeed:collection2@3.0.0         # Integrate node-simpl-schema with Meteor collections.
 
 # UI support
 themeteorchef:bert               # UI notifications. https://themeteorchef.com/tutorials/client-side-alerts-with-bert
