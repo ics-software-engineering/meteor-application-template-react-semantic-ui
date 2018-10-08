@@ -5,10 +5,10 @@ import { Tracker } from 'meteor/tracker';
 /** Create a Meteor collection. */
 // console.log('creating collection stuffs');
 // console.trace('creating collection stuffs');
-export const Stuffs = new Mongo.Collection('Stuffs');
+const Stuffs = new Mongo.Collection('Stuffs');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
-export const StuffSchema = new SimpleSchema({
+const StuffSchema = new SimpleSchema({
   name: String,
   quantity: Number,
   owner: String,
@@ -23,4 +23,4 @@ export const StuffSchema = new SimpleSchema({
 Stuffs.attachSchema(StuffSchema);
 
 /** Make the collection and schema available to other code. */
-//export { Stuffs, StuffSchema };
+export { Stuffs, StuffSchema };

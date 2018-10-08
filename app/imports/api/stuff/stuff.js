@@ -6,9 +6,10 @@ var tracker_1 = require("meteor/tracker");
 /** Create a Meteor collection. */
 // console.log('creating collection stuffs');
 // console.trace('creating collection stuffs');
-exports.Stuffs = new mongo_1.Mongo.Collection('Stuffs');
+var Stuffs = new mongo_1.Mongo.Collection('Stuffs');
+exports.Stuffs = Stuffs;
 /** Create a schema to constrain the structure of documents associated with this collection. */
-exports.StuffSchema = new simpl_schema_1.default({
+var StuffSchema = new simpl_schema_1.default({
     name: String,
     quantity: Number,
     owner: String,
@@ -18,8 +19,7 @@ exports.StuffSchema = new simpl_schema_1.default({
         defaultValue: 'good',
     },
 }, { tracker: tracker_1.Tracker });
+exports.StuffSchema = StuffSchema;
 /** Attach this schema to the collection. */
-exports.Stuffs.attachSchema(exports.StuffSchema);
-/** Make the collection and schema available to other code. */
-//export { Stuffs, StuffSchema };
+Stuffs.attachSchema(StuffSchema);
 //# sourceMappingURL=stuff.js.map
