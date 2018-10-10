@@ -2,11 +2,7 @@
   "name": "meteor-application-template-react",
   "private": true,
   "dependencies": {
-    "@babel/runtime": "7.0.0-beta.55",
-    "@types/meteor": "^1.4.22",
-    "@types/meteor-roles": "^1.2.31",
-    "@types/mongodb": "^3.1.10",
-    "@types/react": "^16.4.14",
+    "@babel/runtime": "^7.1.2",
     "bcrypt": "^3.0.1",
     "classnames": "^2.2.5",
     "core-js": "^2.5.7",
