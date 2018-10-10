@@ -35,7 +35,7 @@ var EditStuff = /** @class */ (function (_super) {
     /** On successful submit, insert the data. */
     EditStuff.prototype.submit = function (data) {
         var name = data.name, quantity = data.quantity, condition = data.condition, _id = data._id;
-        stuff_1.Stuffs.update(_id, { $set: { name: name, quantity: quantity, condition: condition } }, function (error) { return (error ?
+        stuff_1.Stuffs.update(_id, { $set: { name: name, quantity: quantity, condition: condition } }, {}, function (error) { return (error ?
             themeteorchef_bert_1.Bert.alert({ type: 'danger', message: "Update failed: " + error.message }) :
             themeteorchef_bert_1.Bert.alert({ type: 'success', message: 'Update succeeded' })); });
     };
