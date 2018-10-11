@@ -14,8 +14,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var semantic_ui_react_1 = require("semantic-ui-react");
 var react_router_dom_1 = require("react-router-dom");
+var semantic_ui_react_1 = require("semantic-ui-react");
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 var StuffItem = /** @class */ (function (_super) {
     __extends(StuffItem, _super);
