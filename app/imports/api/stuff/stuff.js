@@ -1,23 +1,45 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongo_1 = require("meteor/mongo");
-var simpl_schema_1 = require("simpl-schema");
 var tracker_1 = require("meteor/tracker");
+var simpl_schema_1 = require("simpl-schema");
 /** Create a Meteor collection. */
 // console.log('creating collection stuffs');
 // console.trace('creating collection stuffs');
-var Stuffs = new mongo_1.Mongo.Collection('Stuffs');
+var name = 'Stuffs';
+var StuffCollection = /** @class */ (function () {
+    function StuffCollection() {
+        // nothing to do.
+    }
+    StuffCollection.getInstance = function () {
+        if (!StuffCollection.instance) {
+            StuffCollection.instance = new StuffCollection();
+            if (!mongo_1.Mongo.Collection.get(name)) {
+                StuffCollection.instance.collection = new mongo_1.Mongo.Collection(name);
+            }
+            else {
+                StuffCollection.instance.collection = mongo_1.Mongo.Collection.get(name);
+            }
+        }
+        return StuffCollection.instance;
+    };
+    StuffCollection.prototype.getCollection = function () {
+        return this.collection;
+    };
+    return StuffCollection;
+}());
+var Stuffs = StuffCollection.getInstance().getCollection();
 exports.Stuffs = Stuffs;
 /** Create a schema to constrain the structure of documents associated with this collection. */
 var StuffSchema = new simpl_schema_1.default({
-    name: String,
-    quantity: Number,
-    owner: String,
     condition: {
-        type: String,
         allowedValues: ['excellent', 'good', 'fair', 'poor'],
         defaultValue: 'good',
+        type: String,
     },
+    name: String,
+    owner: String,
+    quantity: Number,
 }, { tracker: tracker_1.Tracker });
 exports.StuffSchema = StuffSchema;
 /** Attach this schema to the collection. */

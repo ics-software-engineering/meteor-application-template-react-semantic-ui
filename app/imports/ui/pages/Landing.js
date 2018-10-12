@@ -22,9 +22,9 @@ var Landing = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Landing.prototype.render = function () {
-        return (React.createElement(semantic_ui_react_1.Grid, { verticalAlign: 'middle', textAlign: 'center', container: true },
+        return (React.createElement(semantic_ui_react_1.Grid, { verticalAlign: "middle", textAlign: "center", container: true },
             React.createElement(semantic_ui_react_1.Grid.Column, { width: 4 },
-                React.createElement(semantic_ui_react_1.Image, { size: 'small', circular: true, src: "/images/meteor-logo.png" })),
+                React.createElement(semantic_ui_react_1.Image, { size: "small", circular: true, src: "/images/meteor-logo.png" })),
             React.createElement(semantic_ui_react_1.Grid.Column, { width: 8 },
                 React.createElement("h1", null, "Welcome to this template"),
                 React.createElement("p", null, "Now get to work and modify this app!"))));
