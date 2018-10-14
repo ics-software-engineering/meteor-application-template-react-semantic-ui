@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "umd",
     "moduleResolution": "node",
     "alwaysStrict": true,
     "sourceMap": true,
@@ -15,9 +15,12 @@
     "strictNullChecks": false
   },
   "include": [
-    "client/**/*",
-    "server/**/*",
-    "imports/**/*"
+    "client/**/*.ts",
+    "client/**/*.tsx",
+    "server/**/*.ts",
+    "server/**/*.tsx",
+    "imports/**/*.ts",
+    "imports/**/*.tsx"
   ],
   "exclude": [
     "node_modules",
