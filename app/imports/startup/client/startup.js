@@ -4,14 +4,14 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "react", "react-dom", "meteor/meteor", "../../ui/layouts/App"], factory);
+        define(["require", "exports", "meteor/meteor", "react", "react-dom", "../../ui/layouts/App"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    var meteor_1 = require("meteor/meteor");
     var React = require("react");
     var react_dom_1 = require("react-dom");
-    var meteor_1 = require("meteor/meteor");
     var App_1 = require("../../ui/layouts/App");
     /** Startup the application by rendering the App layout component. */
     meteor_1.Meteor.startup(function () {

@@ -37,10 +37,10 @@
         };
         return StuffCollection;
     }());
-    console.time('Stuffs');
+    console.time('Stuffs'); // tslint:disable-line
     var Stuffs = StuffCollection.getInstance().getCollection();
     exports.Stuffs = Stuffs;
-    console.timeEnd('Stuffs');
+    console.timeEnd('Stuffs'); // tslint:disable-line
     /** Create a schema to constrain the structure of documents associated with this collection. */
     var StuffSchema = new simpl_schema_1.default({
         condition: {

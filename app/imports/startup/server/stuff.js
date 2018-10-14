@@ -4,25 +4,25 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "meteor/meteor", "meteor/alanning:roles", "../../api/stuff/stuff"], factory);
+        define(["require", "exports", "meteor/alanning:roles", "meteor/meteor", "../../api/stuff/stuff"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var meteor_1 = require("meteor/meteor");
     var alanning_roles_1 = require("meteor/alanning:roles");
-    console.time('startup/server');
+    var meteor_1 = require("meteor/meteor");
+    console.time('startup/server'); // tslint:disable-line
     var stuff_1 = require("../../api/stuff/stuff");
-    console.timeEnd('startup/server');
+    console.timeEnd('startup/server'); // tslint:disable-line
     /** Initialize the database with a default data document. */
     function addData(data) {
-        console.log("  Adding: " + data.name + " (" + data.owner + ")");
+        console.log("  Adding: " + data.name + " (" + data.owner + ")"); // tslint:disable-line
         stuff_1.Stuffs.insert(data);
     }
     /** Initialize the collection if empty. */
     if (stuff_1.Stuffs.find().count() === 0) {
         if (meteor_1.Meteor.settings.defaultData) {
-            console.log('Creating default data.');
+            console.log('Creating default data.'); // tslint:disable-line
             meteor_1.Meteor.settings.defaultData.map(function (data) { return addData(data); });
         }
     }

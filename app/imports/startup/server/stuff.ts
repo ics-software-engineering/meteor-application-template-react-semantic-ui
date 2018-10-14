@@ -1,20 +1,20 @@
-import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-console.time('startup/server');
+import { Meteor } from 'meteor/meteor';
+console.time('startup/server'); // tslint:disable-line
 import { Stuffs } from '../../api/stuff/stuff';
-console.timeEnd('startup/server');
+console.timeEnd('startup/server'); // tslint:disable-line
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.name} (${data.owner})`); // tslint:disable-line
   Stuffs.insert(data);
 }
 
 /** Initialize the collection if empty. */
 if (Stuffs.find().count() === 0) {
   if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addData(data));
+    console.log('Creating default data.'); // tslint:disable-line
+    Meteor.settings.defaultData.map((data) => addData(data));
   }
 }
 
