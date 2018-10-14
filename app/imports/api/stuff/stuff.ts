@@ -31,9 +31,9 @@ class StuffCollection {
     return this.collection;
   }
 }
-console.time('Stuffs');
+console.time('Stuffs'); // tslint:disable-line
 const Stuffs = StuffCollection.getInstance().getCollection();
-console.timeEnd('Stuffs');
+console.timeEnd('Stuffs'); // tslint:disable-line
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const StuffSchema = new simplSchema({
