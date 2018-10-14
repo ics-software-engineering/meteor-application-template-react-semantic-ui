@@ -13,7 +13,7 @@ interface IStuffProps {
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StuffItem extends React.Component<IStuffProps, object> {
-  render() {
+  public render() {
     return (
       <Table.Row>
         <Table.Cell>{this.props.stuff.name}</Table.Cell>

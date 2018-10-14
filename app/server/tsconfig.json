@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "umd",
+    "target": "ES6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "alwaysStrict": true,
     "experimentalDecorators": true,
@@ -10,9 +10,9 @@
     "jsx": "react",
     "lib": [
       "dom",
-      "es2015"
+      "es2016"
     ],
-    "allowJs": false,
+    "allowJs": true,
     "noImplicitAny": false,
     "strictNullChecks": false
   },

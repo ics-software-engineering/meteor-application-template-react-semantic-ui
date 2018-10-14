@@ -1,9 +1,9 @@
+import { Accounts } from 'meteor/accounts-base';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
-import { Accounts } from 'meteor/accounts-base';
 
-type SignupState = {
+interface ISignupState {
   email: string;
   password: string;
   error: string;
@@ -12,7 +12,7 @@ type SignupState = {
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
  */
-export default class Signup extends React.Component<object, SignupState> {
+export default class Signup extends React.Component<object, ISignupState> {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
@@ -24,14 +24,16 @@ export default class Signup extends React.Component<object, SignupState> {
   }
 
   /** Update the form controls each time the user interacts with them. */
-  handleChange(e, { name, value  }) {
-    this.setState({ [name]: value });
+  public handleChange(e) {
+    const change = {};
+    change[e.target.name] = e.target.value;
+    this.setState(change);
   }
 
   /** Handle Signup submission using Meteor's account mechanism. */
-  handleSubmit() {
+  public handleSubmit() {
     const { email, password } = this.state;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    Accounts.createUser({ email, password , username: email }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -41,16 +43,16 @@ export default class Signup extends React.Component<object, SignupState> {
   }
 
   /** Display the signup form. */
-  render() {
+  public render() {
     return (
         <Container>
-          <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+          <Grid textAlign="center" verticalAlign="middle" centered={true} columns={2}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
                 Register your account
               </Header>
               <Form onSubmit={this.handleSubmit}>
-                <Segment stacked>
+                <Segment stacked={true}>
                   <Form.Input
                       label="Email"
                       icon="user"
@@ -75,11 +77,11 @@ export default class Signup extends React.Component<object, SignupState> {
               <Message>
                 Already have an account? Login <Link to="/signin">here</Link>
               </Message>
-              {this.state.error === '' ? (
+              {this.state.error === '' ? ( // tslint:disable-line
                   ''
               ) : (
                   <Message
-                      error
+                      error={true}
                       header="Registration was not successful"
                       content={this.state.error}
                   />

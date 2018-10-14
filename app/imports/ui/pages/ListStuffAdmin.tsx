@@ -1,29 +1,29 @@
-import * as React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import * as React from 'react';
+import { Container, Header, Loader, Table } from 'semantic-ui-react';
 import { Stuffs } from '../../api/stuff/stuff';
 import StuffItemAdmin from '../../ui/components/StuffItemAdmin';
 
-type ListStuffAdminProps = {
+interface IListStuffAdminProps {
   ready: boolean;
   stuffs: any; // CAM: Don't like the any should be an array of stuff.
 }
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListStuffAdmin extends React.Component<ListStuffAdminProps, object> {
+class ListStuffAdmin extends React.Component<IListStuffAdminProps, object> {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
-  render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  public render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active={true}>Getting data</Loader>;
   }
 
   /** Render the page once subscriptions have been received. */
-  renderPage() {
+  public renderPage() {
     return (
         <Container>
           <Header as="h2" textAlign="center">List Stuff (Admin)</Header>
-          <Table celled>
+          <Table celled={true}>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
@@ -46,7 +46,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('StuffAdmin');
   return {
-    stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
+    stuffs: Stuffs.find({}).fetch(),
   };
 })(ListStuffAdmin);
