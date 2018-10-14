@@ -28,8 +28,10 @@ var StuffCollection = /** @class */ (function () {
     };
     return StuffCollection;
 }());
+console.time('Stuffs');
 var Stuffs = StuffCollection.getInstance().getCollection();
 exports.Stuffs = Stuffs;
+console.timeEnd('Stuffs');
 /** Create a schema to constrain the structure of documents associated with this collection. */
 var StuffSchema = new simpl_schema_1.default({
     condition: {

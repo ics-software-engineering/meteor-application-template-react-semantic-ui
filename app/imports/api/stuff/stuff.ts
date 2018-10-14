@@ -31,8 +31,9 @@ class StuffCollection {
     return this.collection;
   }
 }
-
+console.time('Stuffs');
 const Stuffs = StuffCollection.getInstance().getCollection();
+console.timeEnd('Stuffs');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const StuffSchema = new simplSchema({

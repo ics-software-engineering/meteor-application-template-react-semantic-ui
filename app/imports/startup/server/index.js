@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./accounts.js");
-require("./stuff.js");
+require("./accounts");
+require("./stuff");
 //# sourceMappingURL=index.js.map

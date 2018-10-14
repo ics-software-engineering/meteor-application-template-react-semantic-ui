@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
+console.time('startup/server');
 import { Stuffs } from '../../api/stuff/stuff';
+console.timeEnd('startup/server');
 
 /** Initialize the database with a default data document. */
 function addData(data) {

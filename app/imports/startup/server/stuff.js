@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var meteor_1 = require("meteor/meteor");
 var alanning_roles_1 = require("meteor/alanning:roles");
+console.time('startup/server');
 var stuff_1 = require("../../api/stuff/stuff");
+console.timeEnd('startup/server');
 /** Initialize the database with a default data document. */
 function addData(data) {
     console.log("  Adding: " + data.name + " (" + data.owner + ")");
