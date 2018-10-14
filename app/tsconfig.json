@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "umd",
+    "module": "commonjs",
     "moduleResolution": "node",
     "alwaysStrict": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false,
     "sourceMap": true,
     "jsx": "react",
     "lib": [
@@ -14,6 +14,7 @@
     ],
     "allowJs": false,
     "noImplicitAny": false,
+    "noEmitHelpers": true,
     "strictNullChecks": false
   },
   "include": [
