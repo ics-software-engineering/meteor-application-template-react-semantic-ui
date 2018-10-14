@@ -29,9 +29,9 @@ var StuffCollection = /** @class */ (function () {
     return StuffCollection;
 }());
 console.time('Stuffs'); // tslint:disable-line
-// const Stuffs = StuffCollection.getInstance().getCollection();
-var Stuffs = new mongo_1.Mongo.Collection(name);
+var Stuffs = StuffCollection.getInstance().getCollection();
 exports.Stuffs = Stuffs;
+// const Stuffs = new Mongo.Collection(name);
 console.timeEnd('Stuffs'); // tslint:disable-line
 /** Create a schema to constrain the structure of documents associated with this collection. */
 var StuffSchema = new simpl_schema_1.default({
