@@ -14,7 +14,6 @@
     ],
     "allowJs": false,
     "noImplicitAny": false,
-    "noEmitHelpers": true,
     "strictNullChecks": false
   },
   "include": [

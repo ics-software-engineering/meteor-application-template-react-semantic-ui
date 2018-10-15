@@ -35,5 +35,5 @@ alanning:roles                   # https://github.com/alanning/meteor-roles
 
 # Prototyping only
 insecure@1.0.7                         # Enable client-side manipulation of Mongo collections.
-dburles:mongo-collection-instances
 barbatus:typescript
+dburles:mongo-collection-instances
