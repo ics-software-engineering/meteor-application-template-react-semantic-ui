@@ -2,11 +2,11 @@
 
 Meteor-application-template-react is a sample Meteor 1.7 application that illustrates:
 
-  * A standard directory layout using 'imports/' as recommended in the [Meteor Guide](https://guide.meteor.com/structure.html) 
+  * A standard directory layout using 'imports/' as recommended in the [Meteor Guide](https://guide.meteor.com/structure.html)
   * Use of [Semantic UI React](https://react.semantic-ui.com/) for user interface.
   * Use of [Uniforms](https://github.com/vazco/uniforms) for form development
   * Use of [alanning:Roles](https://github.com/alanning/meteor-roles) to implement a special "Admin" user.
-  * Simple authorization, authentication, and registration using built-in Meteor packages. 
+  * Simple authorization, authentication, and registration using built-in Meteor packages.
   * Simple initialization of users and data from a settings file.
   * Simple quality assurance using [ESLint](http://eslint.org) with packages to partially enforce the [Meteor Coding Standards](https://guide.meteor.com/code-style.html) and the [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript).
 
@@ -14,7 +14,7 @@ The goal of this template is to help you get quickly started doing Meteor develo
 
 To keep this codebase simple and small, some important capabilities are intentionally excluded from this template:
 
-  * Testing. 
+  * Testing.
   * Security (meteor-application-template-react enables the insecure packages)
 
 Examples of the these capabilities will be provided elsewhere.
@@ -29,10 +29,10 @@ Third, [download a zip file containing a snapshot of meteor-application-template
 
 Fourth, uncompress the zip file, and copy the following files and directories into your repo:
 
-  * app/  
+  * app/
   * config/
   * .gitignore
-  
+
 You don't need to copy the README.md or index.md files (you should write your own), and you don't need to copy the doc/ directory (it contains only screenshots displayed in this page of documentation.)
 
 Now your local repo should contain the template. To test that everything is OK, cd into the app directory install the required libraries with:
@@ -41,6 +41,8 @@ Now your local repo should contain the template. To test that everything is OK, 
 ```
 $ meteor npm install
 ```
+
+## Running the system
 
 Once the libraries are installed, you can run the application by invoking the ["start" script in the package.json file](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/package.json):
 
@@ -58,8 +60,8 @@ meteor npm run start
 
 [[[[[ ~/github/ics-software-engineering/meteor-application-template-react/app ]]]]]
 
-=> Started proxy.                             
-=> Started MongoDB.                           
+=> Started proxy.
+=> Started MongoDB.
 I20180227-13:33:02.716(-10)? Creating the default user(s)
 I20180227-13:33:02.742(-10)?   Creating user admin@foo.com.
 I20180227-13:33:02.743(-10)?   Creating user john@foo.com.
@@ -74,7 +76,9 @@ I20180227-13:33:02.744(-10)?   Adding: Boogie Board (admin@foo.com)
 ```
 
 
-**Note regarding bcrypt warning.** You will also get the following message when you run this application:
+### Note regarding "bcrypt warning":
+
+You will also get the following message when you run this application:
 
 ```
 Note: you are using a pure-JavaScript implementation of bcrypt.
@@ -89,7 +93,25 @@ in the root directory of your application.
 
 On some operating systems (particularly Windows), installing bcrypt is much more difficult than implied by the above message. Bcrypt is only used in Meteor for password checking, so the performance implications are negligible until your site has very high traffic. You can safely ignore this warning without any problems during initial stages of development.
 
+### Note regarding "MongoError: not master and slaveOk=false":
+
+Intermittently, you may see the following error message in the console when the system starts up:
+
+```
+MongoError: not master and slaveOk=false
+     at queryCallback (/Users/philipjohnson/.meteor/packages/npm-mongo/.3.1.1.1mmptof.qcqo++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/cursor.js:248:25)
+     at /Users/philipjohnson/.meteor/packages/npm-mongo/.3.1.1.1mmptof.qcqo++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:532:18
+     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+```
+
+While irritating, this message appears to be harmless and [possibly related to a race condition between the development instance of Mongo and Meteor](https://github.com/meteor/meteor/issues/9026#issuecomment-330850366). By harmless, I mean that in most cases, the console goes on to display `App running at: http://localhost:3000/` and no problems occur during run time.
+
+### Viewing the running app
+
 If all goes well, the template application will appear at [http://localhost:3000](http://localhost:3000).  You can login using the credentials in [settings.development.json](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/config/settings.development.json), or else register a new account.
+
+### ESLint
 
 Lastly, you can run ESLint over the code in the imports/ directory with:
 
@@ -124,18 +146,18 @@ client/
 imports/
   api/           # Define collections
   startup/       # Define code to run when system starts up (client-only, server-only, both)
-    both/          
-    client/        
-    server/        
+    both/
+    client/
+    server/
   ui/
     layouts/     # Contains top-level layout (<App> component).
-    pages/       # Contains components for each page. 
-    components/  # Contains page elements, some of which could appear on multiple pages. 
+    pages/       # Contains components for each page.
+    components/  # Contains page elements, some of which could appear on multiple pages.
 
 node_modules/    # managed by Meteor
 
 public/          # static assets (like images) can go here.
-  
+
 server/
    main.js       # import the server-side js files.
 ```
@@ -148,7 +170,7 @@ This system adheres to the Meteor guideline of putting all application code in t
 
 The application implements a simple CRUD application for managing "Stuff", which is a Mongo Collection consisting of a name (String), a quantity (Number), and a condition (one of 'excellent', 'good', 'fair', or 'poor').
 
-By default, each user only sees the Stuff that they have created.  However, the settings file enables you to define default accounts.  If you define a user with the role "admin", then that user gets access to a special page 
+By default, each user only sees the Stuff that they have created.  However, the settings file enables you to define default accounts.  If you define a user with the role "admin", then that user gets access to a special page
 
 #### Landing page
 
@@ -215,7 +237,7 @@ Note that non-admin users cannot get to this page, even if they type in the URL 
 
 ### Collections
 
-The application implements a single Collection called "Stuff". Each Stuff document has the following fields: name, quantity, condition, and username. 
+The application implements a single Collection called "Stuff". Each Stuff document has the following fields: name, quantity, condition, and username.
 
 The Stuff collection is defined in [imports/api/stuff/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/api/stuff/stuff.js).
 
@@ -263,7 +285,7 @@ The application includes a [.eslintrc](https://github.com/ics-software-engineeri
 > eslint --quiet ./imports
 ```
 
-ESLint should run without generating any errors.  
+ESLint should run without generating any errors.
 
 It's significantly easier to do development with ESLint integrated directly into your IDE (such as IntelliJ).
 
@@ -275,4 +297,4 @@ For more information about this system, please watch one or more of the followin
   * [Data and accounts structure and initialization (10 min)](https://www.youtube.com/watch?v=7mobeyECNH8)
   * [Navigation, routing, pages, components (10 min)](https://www.youtube.com/watch?v=V6rrX7sbWDM)
   * [Forms (15 min)](https://www.youtube.com/watch?v=s77Vg6hgevI)
-  * [Authorization, authentication, and roles (10 min)](https://www.youtube.com/watch?v=_i1dgcP0zoI) 
+  * [Authorization, authentication, and roles (10 min)](https://www.youtube.com/watch?v=_i1dgcP0zoI)
