@@ -113,7 +113,7 @@ If all goes well, the template application will appear at [http://localhost:3000
 
 ### ESLint
 
-Lastly, you can run ESLint over the code in the imports/ directory with:
+You can verify that the code obeys our coding standards by running ESLint over the code in the imports/ directory with:
 
 ```
 meteor npm run lint
