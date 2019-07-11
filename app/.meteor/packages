@@ -25,9 +25,6 @@ accounts-password@1.5.1          # https://guide.meteor.com/accounts.html
 # Collection support
 aldeed:collection2-core          # Integrate node simpl-schema with Meteor collections.
 
-# UI support
-themeteorchef:bert               # UI notifications. https://themeteorchef.com/tutorials/client-side-alerts-with-bert
-
 # Utilities
 underscore@1.0.10                       # http://underscorejs.org/
 ejson@1.1.0                            # https://docs.meteor.com/api/ejson.html

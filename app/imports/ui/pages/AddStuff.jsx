@@ -8,7 +8,7 @@ import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
-import { Bert } from 'meteor/themeteorchef:bert';
+import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 
 /** Renders the Page for adding a document. */
@@ -25,9 +25,9 @@ class AddStuff extends React.Component {
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
-      Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` });
+      swal('Error', error, 'error');
     } else {
-      Bert.alert({ type: 'success', message: 'Add succeeded' });
+      swal('Success', 'Item added successfully', 'success');
       this.formRef.reset();
     }
   }

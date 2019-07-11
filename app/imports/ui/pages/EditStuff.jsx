@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
-import { Bert } from 'meteor/themeteorchef:bert';
+import swal from 'sweetalert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import NumField from 'uniforms-semantic/NumField';
@@ -20,8 +20,8 @@ class EditStuff extends React.Component {
   submit(data) {
     const { name, quantity, condition, _id } = data;
     Stuffs.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
-        Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-        Bert.alert({ type: 'success', message: 'Update succeeded' })));
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')))
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
