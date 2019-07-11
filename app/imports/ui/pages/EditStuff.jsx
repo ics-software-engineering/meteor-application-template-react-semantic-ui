@@ -21,7 +21,7 @@ class EditStuff extends React.Component {
     const { name, quantity, condition, _id } = data;
     Stuffs.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')))
+      swal('Success', 'Item updated successfully', 'success')));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
