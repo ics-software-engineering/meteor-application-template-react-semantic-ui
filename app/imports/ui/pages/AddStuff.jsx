@@ -17,8 +17,6 @@ class AddStuff extends React.Component {
   /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
   constructor(props) {
     super(props);
-    this.submit = this.submit.bind(this);
-    this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
 
@@ -45,7 +43,7 @@ class AddStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={this.submit} >
+            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={data => this.submit(data)} >
               <Segment>
                 <TextField name='name'/>
                 <NumField name='quantity' decimal={false}/>
