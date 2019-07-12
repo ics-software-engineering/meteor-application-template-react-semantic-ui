@@ -18,8 +18,8 @@ const StuffSchema = new SimpleSchema({
   },
 }, { tracker: Tracker });
 
-// SimpleSchema@2 bridge.
-const bridge = new SimpleSchema2Bridge(StuffSchema);
+// Uniforms Bridge: https://uniforms.tools/docs/api-bridges#simpleschema2bridge
+const bridge = new SimpleSchema2Bridge(StuffSchema); //eslint-disable-line
 
 /** Attach this schema to the collection. */
 Stuffs.attachSchema(StuffSchema);
