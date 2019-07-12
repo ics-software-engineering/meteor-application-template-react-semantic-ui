@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
-import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2';
+import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
 
 /** Create a Meteor collection. */
 const Stuffs = new Mongo.Collection('Stuffs');
@@ -17,9 +17,6 @@ const StuffSchema = new SimpleSchema({
     defaultValue: 'good',
   },
 }, { tracker: Tracker });
-
-// Uniforms Bridge: https://uniforms.tools/docs/api-bridges#simpleschema2bridge
-const bridge = new SimpleSchema2Bridge(StuffSchema); //eslint-disable-line
 
 /** Attach this schema to the collection. */
 Stuffs.attachSchema(StuffSchema);

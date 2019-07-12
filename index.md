@@ -1,14 +1,14 @@
 ![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/landing-page.png)
 
-Meteor-application-template-react is a sample Meteor 1.7 application that illustrates:
+Meteor-application-template-react is a sample Meteor 1.8 application that illustrates:
 
   * A standard directory layout using 'imports/' as recommended in the [Meteor Guide](https://guide.meteor.com/structure.html)
-  * Use of [Semantic UI React](https://react.semantic-ui.com/) for user interface.
-  * Use of [Uniforms](https://github.com/vazco/uniforms) for form development
-  * Use of [alanning:Roles](https://github.com/alanning/meteor-roles) to implement a special "Admin" user.
-  * Simple authorization, authentication, and registration using built-in Meteor packages.
-  * Simple initialization of users and data from a settings file.
-  * Simple quality assurance using [ESLint](http://eslint.org) with packages to partially enforce the [Meteor Coding Standards](https://guide.meteor.com/code-style.html) and the [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript).
+  * [Semantic UI React](https://react.semantic-ui.com/) for user interface.
+  * [Uniforms](https://uniforms.tools/) for form development.
+  * [alanning:roles](https://github.com/alanning/meteor-roles) to implement a special "Admin" user.
+  * Authorization, authentication, and registration using built-in Meteor packages.
+  * Initialization of users and data from a settings file.
+  * Quality assurance using [ESLint](http://eslint.org) with packages to partially enforce the [Meteor Coding Standards](https://guide.meteor.com/code-style.html) and the [AirBnB Javascript Style Guide](https://github.com/airbnb/javascript).
 
 The goal of this template is to help you get quickly started doing Meteor development by providing a reasonable directory structure for development and deployment, a set of common extensions to the core framework, and boilerplate code to implement basic page display, navigation, forms, roles, and collection manipulation.
 
@@ -23,20 +23,11 @@ Examples of the these capabilities will be provided elsewhere.
 
 First, [install Meteor](https://www.meteor.com/install).
 
-Second, [create a new GitHub repository](https://help.github.com/articles/create-a-repo/), and clone it into your local workspace.
+Second, go to [https://github.com/ics-software-engineering/meteor-application-template-react](https://github.com/ics-software-engineering/meteor-application-template-react), and click the "Use this template" button. Complete the dialog box to create a new repository that you own that is initialized with this template's files.
 
-Third, [download a zip file containing a snapshot of meteor-application-template-react](https://github.com/ics-software-engineering/meteor-application-template-react/archive/master.zip).
+Third, go to your newly created repository, and click the "Clone or download" button to download your new GitHub repo to your local file system.  Using [GitHub Desktop](https://desktop.github.com/) is a great choice if you use MacOS or Windows.
 
-Fourth, uncompress the zip file, and copy the following files and directories into your repo:
-
-  * app/
-  * config/
-  * .gitignore
-
-You don't need to copy the README.md or index.md files (you should write your own), and you don't need to copy the doc/ directory (it contains only screenshots displayed in this page of documentation.)
-
-Now your local repo should contain the template. To test that everything is OK, cd into the app directory install the required libraries with:
-
+Fourth, cd into the app/ directory of your local copy of the repo, and install third party libraries with:
 
 ```
 $ meteor npm install
@@ -44,7 +35,7 @@ $ meteor npm install
 
 ## Running the system
 
-Once the libraries are installed, you can run the application by invoking the ["start" script in the package.json file](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/package.json):
+Once the libraries are installed, you can run the application by invoking the "start" script in the [package.json file](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/package.json):
 
 ```
 $ meteor npm run start
@@ -145,8 +136,8 @@ client/
 
 imports/
   api/           # Define collections
+    stuff/       # The Stuff collection definition
   startup/       # Define code to run when system starts up (client-only, server-only, both)
-    both/
     client/
     server/
   ui/
@@ -154,7 +145,7 @@ imports/
     pages/       # Contains components for each page.
     components/  # Contains page elements, some of which could appear on multiple pages.
 
-node_modules/    # managed by Meteor
+node_modules/    # managed by npm
 
 public/          # static assets (like images) can go here.
 
@@ -170,7 +161,7 @@ This system adheres to the Meteor guideline of putting all application code in t
 
 The application implements a simple CRUD application for managing "Stuff", which is a Mongo Collection consisting of a name (String), a quantity (Number), and a condition (one of 'excellent', 'good', 'fair', or 'poor').
 
-By default, each user only sees the Stuff that they have created.  However, the settings file enables you to define default accounts.  If you define a user with the role "admin", then that user gets access to a special page
+By default, each user only sees the Stuff that they have created.  However, the settings file enables you to define default accounts.  If you define a user with the role "admin", then that user gets access to a special page which lists all the Stuff defined by all users.
 
 #### Landing page
 

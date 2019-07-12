@@ -26,9 +26,9 @@ accounts-password@1.5.1          # https://guide.meteor.com/accounts.html
 aldeed:collection2-core          # Integrate node simpl-schema with Meteor collections.
 
 # Utilities
-underscore@1.0.10                       # http://underscorejs.org/
-ejson@1.1.0                            # https://docs.meteor.com/api/ejson.html
+underscore@1.0.10                # http://underscorejs.org/
+ejson@1.1.0                      # https://docs.meteor.com/api/ejson.html
 alanning:roles                   # https://github.com/alanning/meteor-roles
 
 # Prototyping only
-insecure@1.0.7                         # Enable client-side manipulation of Mongo collections.
+insecure@1.0.7                   # Enable client-side manipulation of Mongo collections.
