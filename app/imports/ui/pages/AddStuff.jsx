@@ -14,36 +14,29 @@ import { Meteor } from 'meteor/meteor';
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
 
-  /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
-  constructor(props) {
-    super(props);
-    this.formRef = null;
-  }
-
-  /** Notify the user of the results of the submit. If successful, clear the form. */
-  insertCallback(error) {
-    if (error) {
-      swal('Error', error, 'error');
-    } else {
-      swal('Success', 'Item added successfully', 'success');
-      this.formRef.reset();
-    }
-  }
-
   /** On submit, insert the data. */
-  submit(data) {
+  submit(data, formRef) {
     const { name, quantity, condition } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, quantity, condition, owner }, this.insertCallback);
+    Stuffs.insert({ name, quantity, condition, owner },
+      (error) => {
+        if (error) {
+          swal('Error', error, 'error');
+        } else {
+          swal('Success', 'Item added successfully', 'success');
+          formRef.reset();
+        }
+      });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    let fRef = null;
     return (
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={data => this.submit(data)} >
+            <AutoForm ref={ref => { fRef = ref; }} schema={StuffSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
                 <NumField name='quantity' decimal={false}/>
