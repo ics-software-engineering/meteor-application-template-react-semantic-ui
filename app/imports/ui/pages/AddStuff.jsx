@@ -10,6 +10,19 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
+import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
+import SimpleSchema from 'simpl-schema';
+
+/** Create a schema to constrain the structure of documents associated with this collection. */
+const formSchema = new SimpleSchema({
+  name: String,
+  quantity: Number,
+  condition: {
+    type: String,
+    allowedValues: ['excellent', 'good', 'fair', 'poor'],
+    defaultValue: 'good',
+  },
+});
 
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
