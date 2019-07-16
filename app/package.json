@@ -17,9 +17,9 @@
     "semantic-ui-react": "^0.87.3",
     "simpl-schema": "^1.5.5",
     "sweetalert": "^2.1.2",
-    "uniforms": "^2.1.0",
-    "uniforms-bridge-simple-schema-2": "^2.1.0",
-    "uniforms-semantic": "^2.1.0"
+    "uniforms": "^2.2.0",
+    "uniforms-bridge-simple-schema-2": "^2.2.0",
+    "uniforms-semantic": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
