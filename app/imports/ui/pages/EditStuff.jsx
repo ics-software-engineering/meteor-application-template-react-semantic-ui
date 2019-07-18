@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
-import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
+import { Stuffs, StuffSchema } from '/imports/api/stuff/Stuff';
 import swal from 'sweetalert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';

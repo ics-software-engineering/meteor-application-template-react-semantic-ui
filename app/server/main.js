@@ -1,2 +1,3 @@
-import '/imports/startup/server/accounts.js';
-import '/imports/startup/server/stuff.js';
+import '/imports/startup/server/Accounts';
+import '/imports/startup/server/Publications';
+import '/imports/startup/server/Mongo';
