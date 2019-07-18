@@ -33,7 +33,7 @@ class AddStuff extends React.Component {
     Stuffs.insert({ name, quantity, condition, owner },
       (error) => {
         if (error) {
-          swal('Error', error, 'error');
+          swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Item added successfully', 'success');
           formRef.reset();
