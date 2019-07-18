@@ -3,10 +3,10 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 import { SimpleSchema2Bridge } from 'uniforms-bridge-simple-schema-2'; //eslint-disable-line
 
-/** Create a Meteor collection. */
+/** Define a Mongo collection to hold the data. */
 const Stuffs = new Mongo.Collection('Stuffs');
 
-/** Create a schema to constrain the structure of documents associated with this collection. */
+/** Define a schema to specify the structure of each document in the collection. */
 const StuffSchema = new SimpleSchema({
   name: String,
   quantity: Number,
