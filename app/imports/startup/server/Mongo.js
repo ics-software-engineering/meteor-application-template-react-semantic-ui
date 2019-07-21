@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 
+/* eslint-disable no-console */
+
 /** Initialize the database with a default data document. */
 function addData(data) {
   console.log(`  Adding: ${data.name} (${data.owner})`);
@@ -14,4 +16,3 @@ if (Stuffs.find().count() === 0) {
     Meteor.settings.defaultData.map(data => addData(data));
   }
 }
-
