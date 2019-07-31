@@ -24,6 +24,7 @@ accounts-password@1.5.1          # https://guide.meteor.com/accounts.html
 
 # Collection support
 aldeed:collection2-core          # Integrate node simpl-schema with Meteor collections.
+aldeed:schema-index              # Support index: true and unique: true in schema definitions.
 
 # Utilities
 underscore@1.0.10                # http://underscorejs.org/
