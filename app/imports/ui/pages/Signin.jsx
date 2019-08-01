@@ -14,19 +14,15 @@ export default class Signin extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '', error: '', redirectToReferer: false };
-    // Ensure that 'this' is bound to this component in these two functions.
-    // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
-  handleChange(e, { name, value }) {
+  handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   }
 
   /** Handle Signin submission using Meteor's account mechanism. */
-  handleSubmit() {
+  submit = () => {
     const { email, password } = this.state;
     Meteor.loginWithPassword(email, password, (err) => {
       if (err) {
@@ -46,50 +42,50 @@ export default class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-        <Container>
-          <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-            <Grid.Column>
-              <Header as="h2" textAlign="center">
-                Login to your account
-              </Header>
-              <Form onSubmit={this.handleSubmit}>
-                <Segment stacked>
-                  <Form.Input
-                      label="Email"
-                      icon="user"
-                      iconPosition="left"
-                      name="email"
-                      type="email"
-                      placeholder="E-mail address"
-                      onChange={this.handleChange}
-                  />
-                  <Form.Input
-                      label="Password"
-                      icon="lock"
-                      iconPosition="left"
-                      name="password"
-                      placeholder="Password"
-                      type="password"
-                      onChange={this.handleChange}
-                  />
-                  <Form.Button content="Submit"/>
-                </Segment>
-              </Form>
-              <Message>
-                <Link to="/signup">Click here to Register</Link>
-              </Message>
-              {this.state.error === '' ? (
-                  ''
-              ) : (
-                  <Message
-                      error
-                      header="Login was not successful"
-                      content={this.state.error}
-                  />
-              )}
-            </Grid.Column>
-          </Grid>
-        </Container>
+      <Container>
+        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+          <Grid.Column>
+            <Header as="h2" textAlign="center">
+              Login to your account
+            </Header>
+            <Form onSubmit={this.submit}>
+              <Segment stacked>
+                <Form.Input
+                  label="Email"
+                  icon="user"
+                  iconPosition="left"
+                  name="email"
+                  type="email"
+                  placeholder="E-mail address"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  onChange={this.handleChange}
+                />
+                <Form.Button content="Submit"/>
+              </Segment>
+            </Form>
+            <Message>
+              <Link to="/signup">Click here to Register</Link>
+            </Message>
+            {this.state.error === '' ? (
+              ''
+            ) : (
+              <Message
+                error
+                header="Login was not successful"
+                content={this.state.error}
+              />
+            )}
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }
