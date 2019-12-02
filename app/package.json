@@ -31,6 +31,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "chai": "4.2.0",
+    "cross-env": "^6.0.3",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -42,7 +43,8 @@
     "jest": "^24.9.0",
     "jest-meteor-stubs": "^1.5.1",
     "nightmare": "^3.0.2",
-    "react-test-renderer": "^16.12.0"
+    "react-test-renderer": "^16.12.0",
+    "testcafe": "^1.7.0"
   },
   "jest": {
     "moduleNameMapper": {
