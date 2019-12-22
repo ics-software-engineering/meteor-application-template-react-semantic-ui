@@ -1,12 +1,7 @@
 import React from 'react';
 import { Stuffs } from '/imports/api/stuff/Stuff';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import AutoForm from 'uniforms-semantic/AutoForm';
-import TextField from 'uniforms-semantic/TextField';
-import NumField from 'uniforms-semantic/NumField';
-import SelectField from 'uniforms-semantic/SelectField';
-import SubmitField from 'uniforms-semantic/SubmitField';
-import ErrorsField from 'uniforms-semantic/ErrorsField';
+import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
