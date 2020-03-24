@@ -1,12 +1,12 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
-import { Stuffs, StuffSchema } from '/imports/api/stuff/Stuff';
 import swal from 'sweetalert';
 import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import { Stuffs, StuffSchema } from '../../api/stuff/Stuff';
 
 /** Renders the Page for editing a single document. */
 class EditStuff extends React.Component {
