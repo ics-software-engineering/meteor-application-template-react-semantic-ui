@@ -33,7 +33,7 @@
     "eslint-utils": "^2.1.0"
   },
   "scripts": {
-    "start": "meteor --no-release-check --settings ../config/settings.development.json",
+    "start": "meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json",
     "lint": "eslint --quiet --ext .jsx --ext .js ./imports"
   }
 }

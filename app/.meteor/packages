@@ -29,7 +29,7 @@ aldeed:schema-index              # Support index: true and unique: true in schem
 # Utilities
 underscore@1.0.10                # http://underscorejs.org/
 ejson@1.1.1                      # https://docs.meteor.com/api/ejson.html
-alanning:roles                   # https://github.com/alanning/meteor-roles
 
 # Prototyping only
 insecure@1.0.7                   # Enable client-side manipulation of Mongo collections.
+alanning:roles
