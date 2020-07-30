@@ -7,6 +7,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import { Stuffs, StuffSchema } from '../../api/stuff/Stuff';
+import { stuffPublicationName } from '../../startup/server/Publications';
+
 
 /** Renders the Page for editing a single document. */
 class EditStuff extends React.Component {
@@ -58,7 +60,7 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe(stuffPublicationName);
   return {
     doc: Stuffs.findOne(documentId),
     ready: subscription.ready(),
