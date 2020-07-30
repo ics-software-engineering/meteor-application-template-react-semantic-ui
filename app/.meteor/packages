@@ -17,7 +17,6 @@ standard-minifier-js@2.6.0       # JS minifier run for production mode
 es5-shim@4.8.0                   # ECMAScript 5 compatibility for older browsers
 ecmascript@0.14.3                # Enable ECMAScript2015+ syntax in app code
 shell-server@0.5.0               # Server-side component of the `meteor shell` command
-react-meteor-data@0.2.6-beta.16  # Support withTracker to connect Meteor data to React components.
 
 # Accounts
 accounts-password@1.6.0          # https://guide.meteor.com/accounts.html
@@ -33,3 +32,4 @@ ejson@1.1.1                      # https://docs.meteor.com/api/ejson.html
 # Prototyping only
 insecure@1.0.7                   # Enable client-side manipulation of Mongo collections.
 alanning:roles
+react-meteor-data
