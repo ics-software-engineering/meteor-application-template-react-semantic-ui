@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template-react/master/doc/landing-page.png)
 
-Meteor-application-template-react is a sample Meteor 1.9 application that illustrates:
+Meteor-application-template-react is a sample Meteor 1.10 application that illustrates:
 
   * A standard directory layout using 'imports/' as recommended in the [Meteor Guide](https://guide.meteor.com/structure.html)
   * [Semantic UI React](https://react.semantic-ui.com/) for user interface.
@@ -137,7 +137,7 @@ client/
 
 imports/
   api/           # Define collections
-    stuff/       # The Stuff collection definition
+    stuff/       # The Stuffs collection definition
   startup/       # Define code to run when system starts up (client-only, server-only, both)
     client/
     server/
@@ -229,11 +229,11 @@ Note that non-admin users cannot get to this page, even if they type in the URL 
 
 ### Collections
 
-The application implements a single Collection called "Stuff". Each Stuff document has the following fields: name, quantity, condition, and username.
+The application implements a single Collection called "Stuffs". Each Stuffs document has the following fields: name, quantity, condition, and username.
 
-The Stuff collection is defined in [imports/api/stuff/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/api/stuff/stuff.js).
+The Stuffs collection is defined in [imports/api/stuff/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/api/stuff/stuff.js).
 
-The Stuff collection is initialized in [imports/startup/server/stuff.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/startup/server/stuff.js).
+The Stuffs collection is initialized in [imports/startup/server/Mongo.js](https://github.com/ics-software-engineering/meteor-application-template-react/blob/master/app/imports/startup/server/Mongo.js).
 
 ### CSS
 
