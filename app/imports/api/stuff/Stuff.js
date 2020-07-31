@@ -2,23 +2,30 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
-/** Define a Mongo collection to hold the data. */
-const Stuffs = new Mongo.Collection('Stuffs');
+/** Encapsulates state and variable values for this collection. */
+class StuffsCollection {
+  constructor() {
+    // The name of this collection.
+    this.name = 'StuffsCollection';
+    // Define the Mongo collection.
+    this.collection = new Mongo.Collection(this.name);
+    // Define the structure of each document in the collection.
+    this.schema = new SimpleSchema({
+      name: String,
+      quantity: Number,
+      owner: String,
+      condition: {
+        type: String,
+        allowedValues: ['excellent', 'good', 'fair', 'poor'],
+        defaultValue: 'good',
+      },
+    }, { tracker: Tracker });
+    // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
+    this.collection.attachSchema(this.schema);
+    // Define names for publications and subscriptions
+    this.userPublicationName = `${this.name}.publication.user`;
+    this.adminPublicationName = `${this.name}.publication.admin`;
+  }
+}
 
-/** Define a schema to specify the structure of each document in the collection. */
-const StuffSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  owner: String,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
-}, { tracker: Tracker });
-
-/** Attach this schema to the collection. */
-Stuffs.attachSchema(StuffSchema);
-
-/** Make the collection and schema available to other code. */
-export { Stuffs, StuffSchema };
+export const Stuffs = new StuffsCollection();

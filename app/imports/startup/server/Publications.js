@@ -2,33 +2,30 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 
-const stuffPublicationName = 'Stuff';
-const stuffAdminPublicationName = 'StuffAdmin';
-
-/** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish(stuffPublicationName, function publish() {
+// User-level publication.
+// If logged in, then publish documents owned by this user. Otherwise publish nothing.
+Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.find({ owner: username });
+    return Stuffs.collection.find({ owner: username });
   }
   return this.ready();
 });
 
-/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-Meteor.publish(stuffAdminPublicationName, function publish() {
+// Admin-level publication.
+// If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
+Meteor.publish(Stuffs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.find();
+    return Stuffs.collection.find();
   }
   return this.ready();
 });
 
-/** Publish roles for each user. */
+// alanning:roles publication
+// Recommended code to publish roles for each user.
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
   }
   return this.ready();
 });
-
-/** Make the publication names available to pages that need to subscribe to them. */
-export { stuffPublicationName, stuffAdminPublicationName };
