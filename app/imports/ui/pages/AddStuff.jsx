@@ -3,7 +3,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
 
@@ -17,6 +17,8 @@ const formSchema = new SimpleSchema({
     defaultValue: 'good',
   },
 });
+
+const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class AddStuff extends React.Component {
@@ -43,7 +45,7 @@ class AddStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
                 <NumField name='quantity' decimal={false}/>

@@ -5,8 +5,10 @@ import { AutoForm, ErrorsField, HiddenField, NumField, SelectField, SubmitField,
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Stuffs } from '../../api/stuff/Stuff';
+
+const bridge = new SimpleSchema2Bridge(Stuffs.schema);
 
 /** Renders the Page for editing a single document. */
 class EditStuff extends React.Component {
@@ -30,7 +32,7 @@ class EditStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Edit Stuff</Header>
-            <AutoForm schema={Stuffs.schema} onSubmit={data => this.submit(data)} model={this.props.doc}>
+            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>
                 <NumField name='quantity' decimal={false}/>
