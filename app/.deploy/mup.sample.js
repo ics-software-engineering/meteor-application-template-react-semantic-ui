@@ -1,9 +1,9 @@
 module.exports = {
   servers: {
     one: {
-      host: 'changeme.com',
+      host: '111.222.333.444',
       username: 'root',
-      password: 'CHANGEME'
+      password: 'changeme'
     }
   },
 
@@ -20,20 +20,15 @@ module.exports = {
     },
 
     env: {
-      ROOT_URL: 'https://changeme.com',
+      ROOT_URL: 'http://111.222.333.444',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
 
     docker: {
-      // abernix/meteord:node-12-base works with Meteor 1.9 - 1.10
-      // If you are using a different version of Meteor,
-      // refer to the docs for the correct image to use.
       image: 'abernix/meteord:node-12-base',
     },
 
-    // Show progress bar while uploading bundle to server
-    // You might need to disable it on CI servers
     enableUploadProgressBar: true
   },
 
@@ -43,11 +38,4 @@ module.exports = {
       one: {}
     }
   },
-
-  proxy: {
-    domains: 'changeme.com',
-    ssl: {
-      letsEncryptEmail: 'changeme@hawaii.edu'
-    }
-  }
 };
