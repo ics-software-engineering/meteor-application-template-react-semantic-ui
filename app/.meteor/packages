@@ -33,3 +33,4 @@ ejson@1.1.1                      # https://docs.meteor.com/api/ejson.html
 insecure@1.0.7                   # Enable client-side manipulation of Mongo collections.
 alanning:roles
 react-meteor-data
+montiapm:agent
