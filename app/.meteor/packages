@@ -30,7 +30,7 @@ accounts-password
 alanning:roles                   # support roles like 'admin'
 
 # Collection support
-aldeed:collection2-core          # Integrate node simpl-schema with Meteor collections.
+aldeed:collection2
 aldeed:schema-index              # Support index: true and unique: true in schema definitions.
 
 # Utilities
