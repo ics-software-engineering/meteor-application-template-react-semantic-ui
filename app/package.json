@@ -29,10 +29,13 @@
     "eslint-plugin-meteor": "^7.2.1",
     "eslint-plugin-react": "^7.21.4",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-utils": "^2.1.0"
+    "eslint-utils": "^2.1.0",
+    "testcafe": "^1.9.4"
   },
   "scripts": {
     "start": "meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json",
-    "lint": "eslint --quiet --ext .jsx --ext .js ./imports"
+    "lint": "eslint --quiet --ext .jsx --ext .js ./imports",
+    "testcafe-development": "testcafe chrome tests/*.testcafe.js",
+    "testcafe": "testcafe chrome:headless tests/*.testcafe.js -q --app \"meteor npm run start\""
   }
 }

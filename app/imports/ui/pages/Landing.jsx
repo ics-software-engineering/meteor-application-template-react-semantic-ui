@@ -5,7 +5,7 @@ import { Grid, Image } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <Grid verticalAlign='middle' textAlign='center' container>
+        <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
 
           <Grid.Column width={4}>
             <Image size='small' circular src="/images/meteor-logo.png"/>

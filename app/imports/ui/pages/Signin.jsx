@@ -42,7 +42,7 @@ export default class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-      <Container>
+      <Container id="signin-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
@@ -52,6 +52,7 @@ export default class Signin extends React.Component {
               <Segment stacked>
                 <Form.Input
                   label="Email"
+                  id="signin-form-email"
                   icon="user"
                   iconPosition="left"
                   name="email"
@@ -61,6 +62,7 @@ export default class Signin extends React.Component {
                 />
                 <Form.Input
                   label="Password"
+                  id="signin-form-password"
                   icon="lock"
                   iconPosition="left"
                   name="password"
@@ -68,7 +70,7 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
+                <Form.Button id="signin-form-submit" content="Submit"/>
               </Segment>
             </Form>
             <Message>

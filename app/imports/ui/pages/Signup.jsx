@@ -39,7 +39,7 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-      <Container>
+      <Container id="signup-page">
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
@@ -49,6 +49,7 @@ class Signup extends React.Component {
               <Segment stacked>
                 <Form.Input
                   label="Email"
+                  id="signup-form-email"
                   icon="user"
                   iconPosition="left"
                   name="email"
@@ -58,6 +59,7 @@ class Signup extends React.Component {
                 />
                 <Form.Input
                   label="Password"
+                  id="signup-form-password"
                   icon="lock"
                   iconPosition="left"
                   name="password"
@@ -65,7 +67,7 @@ class Signup extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
+                <Form.Button id="signup-form-submit" content="Submit"/>
               </Segment>
             </Form>
             <Message>
