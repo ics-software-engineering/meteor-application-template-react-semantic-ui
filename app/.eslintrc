@@ -37,7 +37,7 @@
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "linebreak-style": "off",
-    "max-len": ["error", 200],
+    "max-len": ["error", 250],
     "meteor/eventmap-params": [2, { "eventParamName": "event", "templateInstanceParamName": "instance" } ],
     "meteor/template-names": "off",
     "no-confusing-arrow": ["error", {"allowParens": true}],
@@ -48,7 +48,7 @@
     "object-shorthand": "off",
     "operator-linebreak": "off",
     "padded-blocks": "off",
-    "indent": "off",
+    "indent": ["error", 2],
     "prefer-arrow-callback": "off",
     "prefer-destructuring": "off",
     "prefer-promise-reject-errors": "off"
