@@ -13,7 +13,7 @@ const bridge = new SimpleSchema2Bridge(Stuffs.schema);
 /** Renders the Page for editing a single document. */
 class EditStuff extends React.Component {
 
-  /** On successful submit, insert the data. */
+  // On successful submit, insert the data.
   submit(data) {
     const { name, quantity, condition, _id } = data;
     Stuffs.collection.update(_id, { $set: { name, quantity, condition } }, (error) => (error ?
@@ -21,12 +21,12 @@ class EditStuff extends React.Component {
       swal('Success', 'Item updated successfully', 'success')));
   }
 
-  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
     return (
       <Grid container centered>
@@ -48,21 +48,25 @@ class EditStuff extends React.Component {
   }
 }
 
-/** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
+// Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use.
 EditStuff.propTypes = {
   doc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+// withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  // Get the document
+  const doc = Stuffs.collection.findOne(documentId);
   return {
-    doc: Stuffs.collection.findOne(documentId),
-    ready: subscription.ready(),
+    doc,
+    ready,
   };
 })(EditStuff);

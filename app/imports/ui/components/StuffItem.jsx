@@ -19,10 +19,15 @@ class StuffItem extends React.Component {
   }
 }
 
-/** Require a document to be passed to this component. */
+// Require a document to be passed to this component.
 StuffItem.propTypes = {
-  stuff: PropTypes.object.isRequired,
+  stuff: PropTypes.shape({
+    name: PropTypes.string,
+    quantity: PropTypes.number,
+    condition: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
 };
 
-/** Wrap this component in withRouter since we use the <Link> React Router element. */
+// Wrap this component in withRouter since we use the <Link> React Router element.
 export default withRouter(StuffItem);

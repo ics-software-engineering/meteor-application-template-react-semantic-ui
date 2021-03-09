@@ -10,18 +10,18 @@ import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-rea
  */
 export default class Signin extends React.Component {
 
-  /** Initialize component state with properties for login and redirection. */
+  // Initialize component state with properties for login and redirection.
   constructor(props) {
     super(props);
     this.state = { email: '', password: '', error: '', redirectToReferer: false };
   }
 
-  /** Update the form controls each time the user interacts with them. */
+  // Update the form controls each time the user interacts with them.
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   }
 
-  /** Handle Signin submission using Meteor's account mechanism. */
+  // Handle Signin submission using Meteor's account mechanism.
   submit = () => {
     const { email, password } = this.state;
     Meteor.loginWithPassword(email, password, (err) => {
@@ -33,7 +33,7 @@ export default class Signin extends React.Component {
     });
   }
 
-  /** Render the signin form. */
+  // Render the signin form.
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     // if correct authentication, redirect to page instead of login screen
@@ -92,7 +92,7 @@ export default class Signin extends React.Component {
   }
 }
 
-/** Ensure that the React Router location object is available in case we need to redirect. */
+// Ensure that the React Router location object is available in case we need to redirect.
 Signin.propTypes = {
   location: PropTypes.object,
 };
