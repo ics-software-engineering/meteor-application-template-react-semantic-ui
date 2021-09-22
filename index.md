@@ -70,7 +70,7 @@ I20180227-13:33:02.744(-10)?   Adding: Boogie Board (admin@foo.com)
 
 ### Note regarding "bcrypt warning":
 
-You will also get the following message when you run this application:
+You might also get the following message when you run this application:
 
 ```
 Note: you are using a pure-JavaScript implementation of bcrypt.
