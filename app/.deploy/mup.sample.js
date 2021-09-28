@@ -18,7 +18,7 @@ module.exports = {
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
-    docker: { image: 'abernix/meteord:node-12-base' },
+    docker: { image: 'zodern/meteor:latest' },
     enableUploadProgressBar: true
   },
   mongo: { version: '3.4.1', servers: { one: {} }
