@@ -30,7 +30,7 @@
     "eslint-plugin-react": "^7.25.3",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-utils": "^2.1.0",
-    "testcafe": "^1.16.0"
+    "testcafe": "^1.18.3"
   },
   "scripts": {
     "start": "meteor --no-release-check --exclude-archs web.browser.legacy,web.cordova --settings ../config/settings.development.json",
