@@ -21,6 +21,6 @@ module.exports = {
     docker: { image: 'zodern/meteor:latest' },
     enableUploadProgressBar: true
   },
-  mongo: { version: '3.4.1', servers: { one: {} }
+  mongo: { version: '5.0.5', servers: { one: {} }
   },
 };
