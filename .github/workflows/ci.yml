@@ -1,4 +1,4 @@
-name: ci-meteor-application-template-react
+name: ci-meteor-application-template-react-semantic-ui
 
 on:
   push:
